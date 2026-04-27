@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+
+# Next.js
+.next/
+out/
+
+# Build output
+dist/
+
+# Environment variables
+.env*.local
+.env
+
+# OS
+.DS_Store
+
+# Lockfiles (keep only package-lock.json since using npm)
+pnpm-lock.yaml
+yarn.lock
