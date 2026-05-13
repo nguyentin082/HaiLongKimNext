@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
+const THEME_TRANSITION_MS = 500;
 
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>('light');
@@ -19,11 +20,19 @@ export function useTheme() {
 
   function applyTheme(t: Theme) {
     const html = document.documentElement;
+
+    html.classList.add('theme-transitioning');
+
     if (t === 'dark') {
       html.classList.add('dark');
     } else {
       html.classList.remove('dark');
     }
+
+    window.setTimeout(() => {
+      html.classList.remove('theme-transitioning');
+    }, THEME_TRANSITION_MS);
+
     localStorage.setItem('theme', t);
   }
 

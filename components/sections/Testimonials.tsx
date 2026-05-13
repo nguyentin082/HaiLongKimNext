@@ -63,7 +63,7 @@ export default function Testimonials() {
   return (
     <>
       {/* Testimonials */}
-      <section className="section-shell py-12 md:py-16">
+      <section id="testimonials" className="section-shell py-12 md:py-16">
         <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
           {tTest('title')}
         </h2>
@@ -71,7 +71,7 @@ export default function Testimonials() {
           {testimonials.map((item) => (
             <article
               key={item.name}
-              className="rounded-[24px] bg-card p-6 soft-shadow border border-border"
+              className="rounded-3xl bg-card p-6 soft-shadow border border-border"
             >
               <div className="flex items-center gap-4">
                 <img
@@ -95,7 +95,7 @@ export default function Testimonials() {
         <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
           {tPartners('title')}
         </h2>
-        <div className="mt-10 grid grid-cols-2 items-center gap-6 rounded-[32px] bg-card px-5 py-8 soft-shadow border border-border md:grid-cols-3 xl:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 items-center gap-6 rounded-4xl bg-card px-5 py-8 soft-shadow border border-border md:grid-cols-3 xl:grid-cols-6">
           {partners.map((item) =>
             item.type === 'image' ? (
               <img
