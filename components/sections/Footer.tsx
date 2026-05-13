@@ -34,7 +34,7 @@ export default function Footer() {
               href="https://facebook.com/hailongkim"
               target="_blank"
               rel="noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary soft-shadow border border-border transition-colors hover:bg-primary hover:text-white hover:border-primary"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary soft-shadow border border-border transition-colors hover:bg-primary hover:text-primary-foreground hover:border-primary"
               aria-label={t('ariaFacebook')}
             >
               <Facebook className="h-4 w-4" />
@@ -43,7 +43,7 @@ export default function Footer() {
               href="https://zalo.me"
               target="_blank"
               rel="noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary soft-shadow border border-border transition-colors hover:bg-primary hover:text-white hover:border-primary"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary soft-shadow border border-border transition-colors hover:bg-primary hover:text-primary-foreground hover:border-primary"
               aria-label={t('ariaZalo')}
             >
               <MessageCircle className="h-4 w-4" />
@@ -52,7 +52,7 @@ export default function Footer() {
               href="https://linkedin.com/company/hailongkim"
               target="_blank"
               rel="noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary soft-shadow border border-border transition-colors hover:bg-primary hover:text-white hover:border-primary"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary soft-shadow border border-border transition-colors hover:bg-primary hover:text-primary-foreground hover:border-primary"
               aria-label={t('ariaLinkedin')}
             >
               <Linkedin className="h-4 w-4" />

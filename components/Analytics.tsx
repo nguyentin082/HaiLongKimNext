@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { GTM, GA } from '@/lib/constants';
+import { GTM, GA } from '@/constants';
 
 export default function Analytics() {
   return (

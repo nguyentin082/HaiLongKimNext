@@ -57,7 +57,7 @@ export default function Hero() {
             <div className="mt-8 flex flex-wrap gap-3 md:gap-4">
               <a
                 href="#destinations"
-                className="rounded-[16px] bg-accent px-6 py-4 text-[14px] font-bold text-white shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 md:text-[16px]"
+                className="rounded-[16px] bg-accent px-6 py-4 text-[14px] font-bold text-accent-foreground shadow-[0_4px_4px_rgba(0,0,0,0.25)] transition-transform hover:-translate-y-0.5 md:text-[16px]"
               >
                 {t('primaryCta')}
               </a>
@@ -74,7 +74,10 @@ export default function Hero() {
 
       <div className="relative z-10 -mt-6 flex flex-wrap justify-center gap-4 px-2 md:-mt-8 xl:-mt-10">
         {quickLinks.map((item) => (
-          <article key={item.label} className="flex min-w-[120px] flex-col items-center justify-center rounded-[24px] bg-card px-4 py-4 soft-shadow border border-border">
+          <article
+            key={item.label}
+            className="flex min-w-[120px] flex-col items-center justify-center rounded-[24px] bg-card px-4 py-4 soft-shadow border border-border"
+          >
             <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
               <img src={item.icon} alt="" className="h-6 w-6" />
             </div>

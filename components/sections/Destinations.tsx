@@ -22,9 +22,27 @@ export default function Destinations() {
   ];
 
   const allItems = [
-    { region: 'north', tag: t('dest1Tag'), title: t('dest1Title'), image: DEST_IMAGES.dest1, alt: t('dest1Alt') },
-    { region: 'central', tag: t('dest2Tag'), title: t('dest2Title'), image: DEST_IMAGES.dest2, alt: t('dest2Alt') },
-    { region: 'south', tag: t('dest3Tag'), title: t('dest3Title'), image: DEST_IMAGES.dest3, alt: t('dest3Alt') },
+    {
+      region: 'north',
+      tag: t('dest1Tag'),
+      title: t('dest1Title'),
+      image: DEST_IMAGES.dest1,
+      alt: t('dest1Alt'),
+    },
+    {
+      region: 'central',
+      tag: t('dest2Tag'),
+      title: t('dest2Title'),
+      image: DEST_IMAGES.dest2,
+      alt: t('dest2Alt'),
+    },
+    {
+      region: 'south',
+      tag: t('dest3Tag'),
+      title: t('dest3Title'),
+      image: DEST_IMAGES.dest3,
+      alt: t('dest3Alt'),
+    },
   ];
 
   const visibleItems = useMemo(() => {
@@ -45,8 +63,10 @@ export default function Destinations() {
               type="button"
               onClick={() => setActiveFilter(filter.id)}
               className={cn(
-                'rounded-[16px] px-8 py-[17px] text-[16px] font-bold text-white card-shadow transition-transform hover:-translate-y-0.5 md:px-10 md:text-[18px]',
-                activeFilter === filter.id ? 'bg-foreground' : 'bg-primary/95',
+                'rounded-[16px] px-8 py-[17px] text-[16px] font-bold card-shadow transition-transform hover:-translate-y-0.5 md:px-10 md:text-[18px]',
+                activeFilter === filter.id
+                  ? 'bg-accent text-accent-foreground'
+                  : 'bg-primary text-primary-foreground',
               )}
             >
               {filter.label}
@@ -57,7 +77,10 @@ export default function Destinations() {
 
       <div className="mt-10 grid gap-8 xl:grid-cols-3">
         {visibleItems.map((item) => (
-          <article key={item.title} className="group relative overflow-hidden rounded-[32px] card-shadow">
+          <article
+            key={item.title}
+            className="group relative overflow-hidden rounded-[32px] card-shadow"
+          >
             <img
               src={item.image}
               alt={item.alt}

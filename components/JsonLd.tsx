@@ -30,7 +30,8 @@ export default function JsonLd() {
     '@type': 'LocalBusiness',
     name: 'Hai Long Kim Travel',
     image: 'https://hailongkim.com/hero-bg.jpg',
-    description: 'Vietnam travel agency offering cruise tours, cultural tours, adventure tours, and holiday packages.',
+    description:
+      'Vietnam travel agency offering cruise tours, cultural tours, adventure tours, and holiday packages.',
     url: 'https://hailongkim.com',
     telephone: '+84-555-123-4567',
     address: {

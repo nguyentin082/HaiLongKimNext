@@ -14,16 +14,23 @@ export default function ContactForm() {
   const [copiedOffice, setCopiedOffice] = useState<string | null>(null);
 
   const offices = [
-    { id: 'hcmc', title: t('office1Title'), address: t('office1Address'), imgAlt: t('office1ImgAlt'), image: OFFICE_IMAGES.hcmc },
-    { id: 'angiang', title: t('office2Title'), address: t('office2Address'), imgAlt: t('office2ImgAlt'), image: OFFICE_IMAGES.angiang },
+    {
+      id: 'hcmc',
+      title: t('office1Title'),
+      address: t('office1Address'),
+      imgAlt: t('office1ImgAlt'),
+      image: OFFICE_IMAGES.hcmc,
+    },
+    {
+      id: 'angiang',
+      title: t('office2Title'),
+      address: t('office2Address'),
+      imgAlt: t('office2ImgAlt'),
+      image: OFFICE_IMAGES.angiang,
+    },
   ];
 
-  const serviceOptions = [
-    t('option1'),
-    t('option2'),
-    t('option3'),
-    t('option4'),
-  ];
+  const serviceOptions = [t('option1'), t('option2'), t('option3'), t('option4')];
 
   const handleCopyAddress = async (id: string, address: string) => {
     try {
@@ -89,7 +96,7 @@ export default function ContactForm() {
             </div>
             <button
               type="submit"
-              className="flex h-[62px] w-full items-center justify-center rounded-[16px] bg-accent px-10 py-[17px] text-[18px] font-bold text-white card-shadow transition-transform hover:-translate-y-0.5"
+              className="flex h-[62px] w-full items-center justify-center rounded-[16px] bg-accent px-10 py-[17px] text-[18px] font-bold text-accent-foreground card-shadow transition-transform hover:-translate-y-0.5"
             >
               {t('submit')}
             </button>
@@ -111,7 +118,7 @@ export default function ContactForm() {
                   className="h-[324px] w-full object-cover"
                 />
                 <div className="absolute inset-x-0 top-6 px-7">
-                  <div className="inline-flex rounded-[24px] bg-foreground/90 px-4 py-[13px] text-[16px] font-bold text-accent map-label">
+                  <div className="inline-flex rounded-[24px] border border-border/60 bg-card/95 px-4 py-[13px] text-[16px] font-bold text-foreground map-label backdrop-blur">
                     {office.address}
                   </div>
                 </div>
@@ -120,7 +127,7 @@ export default function ContactForm() {
                     href={mapsLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-white map-label"
+                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-accent-foreground map-label"
                   >
                     <MapPinned className="h-4 w-4" />
                     {t('actionMaps')}
@@ -129,7 +136,7 @@ export default function ContactForm() {
                     href={mapsLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-white map-label"
+                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-accent-foreground map-label"
                   >
                     <Route className="h-4 w-4" />
                     {t('actionDirections')}
@@ -137,7 +144,7 @@ export default function ContactForm() {
                   <button
                     type="button"
                     onClick={() => handleCopyAddress(office.id, office.address)}
-                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-white map-label"
+                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-accent-foreground map-label"
                   >
                     <Copy className="h-4 w-4" />
                     {copiedOffice === office.id ? t('actionCopied') : t('actionCopy')}

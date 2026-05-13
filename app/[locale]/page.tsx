@@ -36,11 +36,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   await params;
 
   return (

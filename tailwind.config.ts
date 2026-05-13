@@ -1,17 +1,14 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   darkMode: 'class',
-  content: [
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['var(--font-be-vietnam-pro)'],
-        'display': ['var(--font-charmonman)'],
-        'body': ['var(--font-nunito-sans)'],
+        sans: ['var(--font-be-vietnam-pro)'],
+        display: ['var(--font-charmonman)'],
+        body: ['var(--font-nunito-sans)'],
       },
       colors: {
         background: 'rgb(var(--background) / <alpha-value>)',
@@ -44,12 +41,33 @@ const config: Config = {
         },
         'muted-bg': 'rgb(var(--muted-bg) / <alpha-value>)',
         'muted-foreground': 'rgb(var(--muted-foreground) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        secondary: 'rgb(var(--secondary) / <alpha-value>)',
+        'secondary-foreground': 'rgb(var(--secondary-foreground) / <alpha-value>)',
         'surface-alt': 'rgb(var(--surface-alt) / <alpha-value>)',
         'text-secondary': 'rgb(var(--text-secondary) / <alpha-value>)',
         'text-muted': 'rgb(var(--text-muted) / <alpha-value>)',
         card: 'rgb(var(--card) / <alpha-value>)',
         'card-foreground': 'rgb(var(--card-foreground) / <alpha-value>)',
+        popover: 'rgb(var(--popover) / <alpha-value>)',
+        'popover-foreground': 'rgb(var(--popover-foreground) / <alpha-value>)',
         border: 'rgb(var(--border) / <alpha-value>)',
+        input: 'rgb(var(--input) / <alpha-value>)',
+        ring: 'rgb(var(--ring) / <alpha-value>)',
+        'primary-foreground': 'rgb(var(--primary-foreground) / <alpha-value>)',
+        'accent-foreground': 'rgb(var(--accent-foreground) / <alpha-value>)',
+        success: 'rgb(var(--success) / <alpha-value>)',
+        'success-foreground': 'rgb(var(--success-foreground) / <alpha-value>)',
+        destructive: 'rgb(var(--destructive) / <alpha-value>)',
+        'destructive-foreground': 'rgb(var(--destructive-foreground) / <alpha-value>)',
+        sidebar: 'rgb(var(--sidebar) / <alpha-value>)',
+        'sidebar-foreground': 'rgb(var(--sidebar-foreground) / <alpha-value>)',
+        'sidebar-primary': 'rgb(var(--sidebar-primary) / <alpha-value>)',
+        'sidebar-primary-foreground': 'rgb(var(--sidebar-primary-foreground) / <alpha-value>)',
+        'sidebar-accent': 'rgb(var(--sidebar-accent) / <alpha-value>)',
+        'sidebar-accent-foreground': 'rgb(var(--sidebar-accent-foreground) / <alpha-value>)',
+        'sidebar-border': 'rgb(var(--sidebar-border) / <alpha-value>)',
+        'sidebar-ring': 'rgb(var(--sidebar-ring) / <alpha-value>)',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -57,18 +75,18 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       spacing: {
-        'gutter': '1rem',
+        gutter: '1rem',
       },
       screens: {
-        'sm': '640px',
-        'md': '768px',
-        'lg': '1024px',
-        'xl': '1280px',
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
         '2xl': '1536px',
       },
     },
   },
   plugins: [],
-}
+};
 
-export default config
+export default config;

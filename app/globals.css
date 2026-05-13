@@ -7,92 +7,138 @@
 :root {
   /* Light mode */
   color-scheme: light;
-  --background: 252 249 244;       /* warm cream/sand */
-  --foreground: 28 32 30;
+  --background: 245 246 246; /* design canvas */
+  --foreground: 31 47 47;
 
   /* Card / surface */
   --card: 255 255 255;
-  --card-foreground: 28 32 30;
+  --card-foreground: 31 47 47;
+  --popover: 255 255 255;
+  --popover-foreground: 31 47 47;
 
   /* Primary: Teal */
-  --primary: 10 115 115;
-  --primary-50: 240 251 251;
-  --primary-100: 230 247 247;
-  --primary-200: 204 235 235;
-  --primary-300: 166 214 214;
-  --primary-400: 90 175 175;
-  --primary-500: 10 115 115;
-  --primary-600: 10 103 103;
-  --primary-700: 10 107 116;
-  --primary-800: 13 46 53;
-  --primary-900: 10 65 80;
+  --primary: 8 124 122;
+  --primary-foreground: 255 255 255;
+  --primary-50: 234 247 246;
+  --primary-100: 212 240 239;
+  --primary-200: 168 220 218;
+  --primary-300: 119 196 193;
+  --primary-400: 54 160 157;
+  --primary-500: 8 124 122;
+  --primary-600: 6 110 108;
+  --primary-700: 7 92 91;
+  --primary-800: 8 75 75;
+  --primary-900: 6 59 59;
 
   /* Accent: Orange */
-  --accent: 242 140 15;
-  --accent-50: 255 245 230;
-  --accent-100: 255 235 204;
-  --accent-200: 255 214 153;
-  --accent-300: 255 193 102;
-  --accent-400: 255 152 51;
-  --accent-500: 242 140 15;
-  --accent-600: 217 126 13;
-  --accent-700: 191 112 12;
-  --accent-800: 153 89 10;
-  --accent-900: 115 67 7;
+  --accent: 247 144 9;
+  --accent-foreground: 255 255 255;
+  --accent-50: 255 247 237;
+  --accent-100: 255 237 213;
+  --accent-200: 254 215 170;
+  --accent-300: 253 186 116;
+  --accent-400: 251 146 60;
+  --accent-500: 247 144 9;
+  --accent-600: 234 122 8;
+  --accent-700: 198 95 8;
+  --accent-800: 154 74 10;
+  --accent-900: 120 59 11;
+
+  /* Success: Green */
+  --success: 140 198 63;
+  --success-foreground: 255 255 255;
 
   /* Neutrals and Utilities */
-  --muted-bg: 245 241 235;         /* warm off-white panel */
-  --muted-foreground: 107 114 128;
-  --surface-alt: 255 255 255;      /* white card */
-  --text-secondary: 46 46 46;      /* near-black for headings */
-  --text-muted: 120 113 108;       /* stone-500 */
-  --border: 229 221 210;           /* warm beige border */
+  --secondary: 237 247 247;
+  --secondary-foreground: 8 75 75;
+  --muted: 238 240 240;
+  --muted-bg: 238 240 240; /* design section gray */
+  --muted-foreground: 104 116 116;
+  --surface-alt: 255 255 255; /* white card */
+  --text-secondary: 38 51 51; /* design heading ink */
+  --text-muted: 105 117 117;
+  --border: 225 229 229;
+  --input: 225 229 229;
+  --ring: 8 124 122;
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
+  --sidebar: 255 255 255;
+  --sidebar-foreground: 31 47 47;
+  --sidebar-primary: 8 124 122;
+  --sidebar-primary-foreground: 255 255 255;
+  --sidebar-accent: 238 240 240;
+  --sidebar-accent-foreground: 31 47 47;
+  --sidebar-border: 225 229 229;
+  --sidebar-ring: 8 124 122;
   --radius: 0.5rem;
 }
 
 .dark {
   color-scheme: dark;
   /* Dark mode */
-  --background: 14 18 22;          /* deep navy-black */
-  --foreground: 236 234 230;       /* warm off-white */
+  --background: 7 17 18; /* dark design canvas */
+  --foreground: 237 247 246;
 
   /* Card / surface */
-  --card: 22 28 35;
-  --card-foreground: 236 234 230;
+  --card: 15 28 30;
+  --card-foreground: 237 247 246;
+  --popover: 15 28 30;
+  --popover-foreground: 237 247 246;
 
   /* Primary: Teal (lighter in dark mode) */
-  --primary: 64 184 184;
-  --primary-50: 10 46 50;
-  --primary-100: 13 62 68;
-  --primary-200: 18 88 96;
-  --primary-300: 28 128 136;
-  --primary-400: 45 160 160;
-  --primary-500: 64 184 184;
-  --primary-600: 90 200 200;
-  --primary-700: 120 215 215;
-  --primary-800: 160 228 228;
-  --primary-900: 200 242 242;
+  --primary: 76 200 197;
+  --primary-foreground: 4 39 40;
+  --primary-50: 6 36 38;
+  --primary-100: 8 50 53;
+  --primary-200: 11 79 82;
+  --primary-300: 17 116 119;
+  --primary-400: 35 157 157;
+  --primary-500: 76 200 197;
+  --primary-600: 116 216 213;
+  --primary-700: 155 229 226;
+  --primary-800: 196 240 238;
+  --primary-900: 226 250 248;
 
   /* Accent: Orange (slightly softer in dark mode) */
-  --accent: 248 154 48;
-  --accent-50: 60 30 5;
-  --accent-100: 90 45 8;
-  --accent-200: 140 72 12;
-  --accent-300: 185 100 16;
-  --accent-400: 220 128 28;
-  --accent-500: 248 154 48;
-  --accent-600: 255 173 77;
-  --accent-700: 255 190 110;
-  --accent-800: 255 210 150;
-  --accent-900: 255 230 190;
+  --accent: 255 159 28;
+  --accent-foreground: 36 19 3;
+  --accent-50: 50 24 5;
+  --accent-100: 74 35 7;
+  --accent-200: 115 57 9;
+  --accent-300: 166 86 13;
+  --accent-400: 217 119 18;
+  --accent-500: 255 159 28;
+  --accent-600: 255 180 77;
+  --accent-700: 255 201 120;
+  --accent-800: 255 223 168;
+  --accent-900: 255 240 209;
+
+  /* Success: Green */
+  --success: 167 216 90;
+  --success-foreground: 19 36 8;
 
   /* Neutrals and Utilities */
-  --muted-bg: 22 28 36;            /* dark blue-gray panel */
-  --muted-foreground: 156 163 175;
-  --surface-alt: 22 28 35;         /* dark card */
-  --text-secondary: 220 216 210;   /* warm light for headings */
-  --text-muted: 140 133 125;       /* muted warm gray */
-  --border: 40 52 66;              /* dark border */
+  --secondary: 16 43 44;
+  --secondary-foreground: 217 251 248;
+  --muted: 18 32 35;
+  --muted-bg: 11 23 25;
+  --muted-foreground: 155 171 171;
+  --surface-alt: 15 28 30;
+  --text-secondary: 228 241 239;
+  --text-muted: 163 178 178;
+  --border: 38 57 59;
+  --input: 38 57 59;
+  --ring: 76 200 197;
+  --destructive: 248 113 113;
+  --destructive-foreground: 30 8 8;
+  --sidebar: 15 28 30;
+  --sidebar-foreground: 237 247 246;
+  --sidebar-primary: 76 200 197;
+  --sidebar-primary-foreground: 4 39 40;
+  --sidebar-accent: 16 43 44;
+  --sidebar-accent-foreground: 217 251 248;
+  --sidebar-border: 38 57 59;
+  --sidebar-ring: 76 200 197;
 }
 
 @theme {
@@ -101,6 +147,8 @@
 
   --color-card: rgb(var(--card) / <alpha-value>);
   --color-card-foreground: rgb(var(--card-foreground) / <alpha-value>);
+  --color-popover: rgb(var(--popover) / <alpha-value>);
+  --color-popover-foreground: rgb(var(--popover-foreground) / <alpha-value>);
 
   --color-primary-50: rgb(var(--primary-50) / <alpha-value>);
   --color-primary-100: rgb(var(--primary-100) / <alpha-value>);
@@ -113,6 +161,7 @@
   --color-primary-800: rgb(var(--primary-800) / <alpha-value>);
   --color-primary-900: rgb(var(--primary-900) / <alpha-value>);
   --color-primary: rgb(var(--primary) / <alpha-value>);
+  --color-primary-foreground: rgb(var(--primary-foreground) / <alpha-value>);
 
   --color-accent-50: rgb(var(--accent-50) / <alpha-value>);
   --color-accent-100: rgb(var(--accent-100) / <alpha-value>);
@@ -125,13 +174,31 @@
   --color-accent-800: rgb(var(--accent-800) / <alpha-value>);
   --color-accent-900: rgb(var(--accent-900) / <alpha-value>);
   --color-accent: rgb(var(--accent) / <alpha-value>);
+  --color-accent-foreground: rgb(var(--accent-foreground) / <alpha-value>);
+  --color-success: rgb(var(--success) / <alpha-value>);
+  --color-success-foreground: rgb(var(--success-foreground) / <alpha-value>);
 
+  --color-secondary: rgb(var(--secondary) / <alpha-value>);
+  --color-secondary-foreground: rgb(var(--secondary-foreground) / <alpha-value>);
+  --color-muted: rgb(var(--muted) / <alpha-value>);
   --color-muted-bg: rgb(var(--muted-bg) / <alpha-value>);
   --color-muted-foreground: rgb(var(--muted-foreground) / <alpha-value>);
   --color-surface-alt: rgb(var(--surface-alt) / <alpha-value>);
   --color-text-secondary: rgb(var(--text-secondary) / <alpha-value>);
   --color-text-muted: rgb(var(--text-muted) / <alpha-value>);
   --color-border: rgb(var(--border) / <alpha-value>);
+  --color-input: rgb(var(--input) / <alpha-value>);
+  --color-ring: rgb(var(--ring) / <alpha-value>);
+  --color-destructive: rgb(var(--destructive) / <alpha-value>);
+  --color-destructive-foreground: rgb(var(--destructive-foreground) / <alpha-value>);
+  --color-sidebar: rgb(var(--sidebar) / <alpha-value>);
+  --color-sidebar-foreground: rgb(var(--sidebar-foreground) / <alpha-value>);
+  --color-sidebar-primary: rgb(var(--sidebar-primary) / <alpha-value>);
+  --color-sidebar-primary-foreground: rgb(var(--sidebar-primary-foreground) / <alpha-value>);
+  --color-sidebar-accent: rgb(var(--sidebar-accent) / <alpha-value>);
+  --color-sidebar-accent-foreground: rgb(var(--sidebar-accent-foreground) / <alpha-value>);
+  --color-sidebar-border: rgb(var(--sidebar-border) / <alpha-value>);
+  --color-sidebar-ring: rgb(var(--sidebar-ring) / <alpha-value>);
 
   --radius-none: 0;
   --radius-sm: calc(var(--radius) - 4px);
@@ -160,10 +227,16 @@
   }
 
   .brand-gradient {
-    background: linear-gradient(90deg, #f28a0d 0%, #8c5008 100%);
+    background: linear-gradient(90deg, rgb(var(--accent-500)) 0%, rgb(var(--accent-800)) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  .dark .brand-gradient {
+    background: linear-gradient(90deg, rgb(var(--accent-600)) 0%, rgb(var(--accent-900)) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
   }
 
   .soft-shadow {

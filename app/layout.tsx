@@ -1,9 +1,9 @@
-import type { Metadata } from 'next'
-import { Analytics } from '@vercel/analytics/next'
-import { Be_Vietnam_Pro, Charmonman, Nunito_Sans } from 'next/font/google'
+import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
+import { Be_Vietnam_Pro, Charmonman, Nunito_Sans } from 'next/font/google';
 import JsonLd from '@/components/JsonLd';
 import CustomAnalytics from '@/components/Analytics';
-import './globals.css'
+import './globals.css';
 
 // Configure fonts
 const beVietnamPro = Be_Vietnam_Pro({
@@ -27,7 +27,8 @@ const nunitoSans = Nunito_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'Hai Long Kim Travel - Discover Vietnam',
-  description: 'Experience unforgettable travel adventures with Hai Long Kim Travel. Expert guides, customized tours, and the best prices for your Vietnam vacation.',
+  description:
+    'Experience unforgettable travel adventures with Hai Long Kim Travel. Expert guides, customized tours, and the best prices for your Vietnam vacation.',
   icons: {
     icon: [
       {
@@ -55,12 +56,12 @@ export const metadata: Metadata = {
     title: 'Hai Long Kim Travel - Discover Vietnam',
     description: 'Experience unforgettable travel adventures with Hai Long Kim Travel.',
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html
@@ -82,11 +83,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-background text-foreground font-sans antialiased" suppressHydrationWarning>
+      <body
+        className="bg-background text-foreground font-sans antialiased"
+        suppressHydrationWarning
+      >
         <CustomAnalytics />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
-  )
+  );
 }

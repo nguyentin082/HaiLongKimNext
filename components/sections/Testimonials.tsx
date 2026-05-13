@@ -19,15 +19,42 @@ export default function Testimonials() {
   const tPartners = useTranslations('partners');
 
   const testimonials = [
-    { name: tTest('item1Name'), quote: tTest('item1Quote'), imgAlt: tTest('item1ImgAlt'), image: TESTIMONIAL_IMAGES[0] },
-    { name: tTest('item2Name'), quote: tTest('item2Quote'), imgAlt: tTest('item2ImgAlt'), image: TESTIMONIAL_IMAGES[1] },
-    { name: tTest('item3Name'), quote: tTest('item3Quote'), imgAlt: tTest('item3ImgAlt'), image: TESTIMONIAL_IMAGES[2] },
+    {
+      name: tTest('item1Name'),
+      quote: tTest('item1Quote'),
+      imgAlt: tTest('item1ImgAlt'),
+      image: TESTIMONIAL_IMAGES[0],
+    },
+    {
+      name: tTest('item2Name'),
+      quote: tTest('item2Quote'),
+      imgAlt: tTest('item2ImgAlt'),
+      image: TESTIMONIAL_IMAGES[1],
+    },
+    {
+      name: tTest('item3Name'),
+      quote: tTest('item3Quote'),
+      imgAlt: tTest('item3ImgAlt'),
+      image: TESTIMONIAL_IMAGES[2],
+    },
   ];
 
   const partners = [
-    { type: 'image' as const, label: tPartners('partner1'), src: PARTNER_IMAGES.vinpearl },
-    { type: 'image' as const, label: tPartners('partner2'), src: PARTNER_IMAGES.sunWorld },
-    { type: 'image' as const, label: tPartners('partner3'), src: PARTNER_IMAGES.superdong },
+    {
+      type: 'image' as const,
+      label: tPartners('partner1'),
+      src: PARTNER_IMAGES.vinpearl,
+    },
+    {
+      type: 'image' as const,
+      label: tPartners('partner2'),
+      src: PARTNER_IMAGES.sunWorld,
+    },
+    {
+      type: 'image' as const,
+      label: tPartners('partner3'),
+      src: PARTNER_IMAGES.superdong,
+    },
     { type: 'text' as const, label: tPartners('partner4') },
     { type: 'text' as const, label: tPartners('partner5') },
     { type: 'text' as const, label: tPartners('partner6') },
@@ -42,7 +69,10 @@ export default function Testimonials() {
         </h2>
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {testimonials.map((item) => (
-            <article key={item.name} className="rounded-[24px] bg-card p-6 soft-shadow border border-border">
+            <article
+              key={item.name}
+              className="rounded-[24px] bg-card p-6 soft-shadow border border-border"
+            >
               <div className="flex items-center gap-4">
                 <img
                   src={item.image}

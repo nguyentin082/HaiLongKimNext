@@ -93,7 +93,7 @@ export default function Header() {
 
           <a
             href="#contact"
-            className="rounded-[16px] bg-accent px-5 py-3 text-[14px] font-bold text-white soft-shadow transition-transform hover:-translate-y-0.5 md:px-8 md:text-[16px]"
+            className="rounded-[16px] bg-accent px-5 py-3 text-[14px] font-bold text-accent-foreground soft-shadow transition-transform hover:-translate-y-0.5 md:px-8 md:text-[16px]"
           >
             {t('bookTour')}
           </a>
@@ -128,7 +128,7 @@ export default function Header() {
                 className={cn(
                   'flex-1 rounded-[12px] px-3 py-2 text-sm font-medium transition-colors',
                   currentLocale === 'vi'
-                    ? 'bg-primary text-white'
+                    ? 'bg-primary text-primary-foreground'
                     : 'bg-muted-bg text-foreground hover:bg-primary/10',
                 )}
               >
@@ -139,7 +139,7 @@ export default function Header() {
                 className={cn(
                   'flex-1 rounded-[12px] px-3 py-2 text-sm font-medium transition-colors',
                   currentLocale === 'en'
-                    ? 'bg-primary text-white'
+                    ? 'bg-primary text-primary-foreground'
                     : 'bg-muted-bg text-foreground hover:bg-primary/10',
                 )}
               >
