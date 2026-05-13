@@ -1,13 +1,19 @@
 {
   "nav": {
     "home": "Trang chủ",
-    "services": "Dịch vụ",
+    "about": "Giới thiệu",
     "destinations": "Điểm đến",
+    "services": "Dịch vụ",
     "gallery": "Hành trình",
+    "testimonials": "Đánh giá",
     "contact": "Liên hệ",
     "bookTour": "Đặt tour",
     "langVi": "Tiếng Việt",
-    "langEn": "English"
+    "langEn": "English",
+    "themeTitle": "Giao diện",
+    "themeSubtitle": "Sáng / Tối",
+    "langTitle": "Ngôn ngữ",
+    "langSubtitle": "Tiếng Việt / Tiếng Anh"
   },
   "hero": {
     "badge1": "Travel agency",

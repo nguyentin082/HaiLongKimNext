@@ -34,7 +34,7 @@ export default function About() {
   return (
     <>
       {/* Overview / About Section */}
-      <section className="section-shell py-12 md:py-16">
+      <section id="about" className="section-shell py-12 md:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="font-display text-[14px] font-bold uppercase tracking-[0.14em] text-accent">
@@ -43,7 +43,7 @@ export default function About() {
             <h2 className="mt-3 font-display text-[32px] font-extrabold leading-tight text-text-secondary md:text-[44px]">
               {tAbout('title')}
             </h2>
-            <p className="mt-5 max-w-[650px] text-[15px] leading-8 text-text-muted md:text-[16px]">
+            <p className="mt-5 max-w-162.5 text-[15px] leading-8 text-text-muted md:text-[16px]">
               {tAbout('description')}
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -70,14 +70,14 @@ export default function About() {
           </div>
 
           <div className="grid gap-5">
-            <div className="relative rounded-[32px] bg-card p-8 soft-shadow border border-border">
+            <div className="relative rounded-4xl bg-card p-8 soft-shadow border border-border">
               <div className="flex flex-col items-center justify-center gap-6 text-center md:flex-row md:text-left">
-                <img src={LOGO_SRC} alt={tAbout('logoAlt')} className="w-full max-w-[240px]" />
-                <div className="absolute -bottom-6 -right-6 rounded-[24px] bg-success px-6 py-5 text-success-foreground shadow-xl max-w-[200px]">
+                <img src={LOGO_SRC} alt={tAbout('logoAlt')} className="w-full max-w-60" />
+                <div className="absolute -bottom-6 -right-6 rounded-3xl bg-success px-6 py-5 text-success-foreground shadow-xl max-w-50">
                   <p className="text-[32px] font-extrabold leading-none">
                     {tAbout('hotlineLabel')}
                   </p>
-                  <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.05em] leading-snug">
+                  <p className="mt-2 text-[13px] font-semibold uppercase tracking-wider leading-snug">
                     {tAbout('hotlineValue')}
                   </p>
                 </div>
@@ -89,7 +89,7 @@ export default function About() {
 
       {/* Why Choose Us Section */}
       <section className="section-shell py-12 md:py-16">
-        <div className="rounded-[32px] bg-muted-bg px-4 py-10 md:px-8">
+        <div className="rounded-4xl bg-muted-bg px-4 py-10 md:px-8">
           <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
             {tReasons('title')}
           </h2>
@@ -97,7 +97,7 @@ export default function About() {
             {reasonItems.map((item) => (
               <article
                 key={item.id}
-                className="rounded-[24px] bg-card p-6 text-center soft-shadow border border-border"
+                className="rounded-3xl bg-card p-6 text-center soft-shadow border border-border"
               >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-[24px]">
                   {item.icon}

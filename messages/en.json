@@ -1,13 +1,19 @@
 {
   "nav": {
     "home": "Home",
-    "services": "Services",
+    "about": "About",
     "destinations": "Destinations",
-    "gallery": "Journeys",
+    "services": "Services",
+    "gallery": "Gallery",
+    "testimonials": "Testimonials",
     "contact": "Contact",
     "bookTour": "Book a tour",
     "langVi": "Tiếng Việt",
-    "langEn": "English"
+    "langEn": "English",
+    "themeTitle": "Theme",
+    "themeSubtitle": "Light / Dark",
+    "langTitle": "Language",
+    "langSubtitle": "English / Vietnamese"
   },
   "hero": {
     "badge1": "Travel agency",

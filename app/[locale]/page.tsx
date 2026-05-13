@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Header from '@/components/sections/Header';
+import Header from '@/components/sections/header';
 import Hero from '@/components/sections/Hero';
 import About from '@/components/sections/About';
 import Destinations from '@/components/sections/Destinations';
@@ -37,11 +37,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
-  await params;
+  const { locale } = await params;
 
   return (
     <div className="min-h-screen bg-background theme-transition">
-      <Header />
+      <Header locale={locale} />
       <main>
         <Hero />
         <About />

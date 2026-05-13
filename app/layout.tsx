@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { Be_Vietnam_Pro, Charmonman, Nunito_Sans } from 'next/font/google';
 import JsonLd from '@/components/JsonLd';
 import CustomAnalytics from '@/components/Analytics';
+import 'flag-icons/css/flag-icons.min.css';
 import './globals.css';
 
 // Configure fonts
