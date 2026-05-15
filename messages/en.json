@@ -27,7 +27,9 @@
     "quickLink2": "Cruises",
     "quickLink3": "Snorkeling",
     "quickLink4": "Attraction tickets",
-    "quickLink5": "Airport transfer"
+    "quickLink5": "Airport transfer",
+    "quickLink6": "Services",
+    "quickLink7": "Shopping"
   },
   "about": {
     "eyebrow": "A trusted travel partner",
@@ -37,6 +39,10 @@
     "card1Desc": "Custom itineraries shaped for families, friends, or private groups.",
     "card2Title": "Transparent pricing",
     "card2Desc": "Clear line items so planning stays easy and decisions stay confident.",
+    "check1": "100+ diverse tours",
+    "check2": "10,000+ customers",
+    "check3": "24/7 support",
+    "check4": "Competitive pricing",
     "logoAlt": "Hai Long Kim logo",
     "hotlineLabel": "Hotline",
     "hotlineValue": "0911 234 567"
