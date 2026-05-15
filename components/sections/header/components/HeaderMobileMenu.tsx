@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import LanguageSwitch from '@/components/sections/header/components/LanguageSwitch';
 import ThemeToggle from '@/components/sections/header/components/ThemeToggle';
 import { useActiveSection } from '@/hooks/use-active-section';
+import { useHeaderModeContext } from '../context/header-mode';
 
 type NavLink = {
   href: string;
@@ -230,6 +231,8 @@ const HeaderMobileMenu = memo(function HeaderMobileMenu({ navLinks }: HeaderMobi
   const handleClose = useCallback(() => setIsMenuOpen(false), []);
   const handleToggle = useCallback(() => setIsMenuOpen((p) => !p), []);
 
+  const isHeroMode = useHeaderModeContext();
+
   return (
     <>
       {/* Hamburger button */}
@@ -239,10 +242,14 @@ const HeaderMobileMenu = memo(function HeaderMobileMenu({ navLinks }: HeaderMobi
         aria-expanded={isMenuOpen}
         aria-label="Toggle navigation"
         className={[
-          'relative z-50 flex h-11 w-11 cursor-pointer items-center justify-center rounded-2xl transition-all duration-300 xl:hidden',
+          'relative z-50 flex h-11 w-11 cursor-pointer items-center justify-center rounded-2xl transition-all duration-500 xl:hidden',
           isMenuOpen
-            ? 'bg-primary/10 text-primary dark:bg-primary/20'
-            : 'bg-muted-bg text-primary hover:bg-primary/8 active:scale-95',
+            ? isHeroMode
+              ? 'bg-white/20 text-white'
+              : 'bg-primary/10 text-primary dark:bg-primary/20'
+            : isHeroMode
+              ? 'bg-white/12 text-white hover:bg-white/22 active:scale-95'
+              : 'bg-muted-bg text-primary hover:bg-primary/8 active:scale-95',
         ].join(' ')}
       >
         <Menu
