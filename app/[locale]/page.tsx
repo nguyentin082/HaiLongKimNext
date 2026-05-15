@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Header from '@/components/sections/header';
-import Hero from '@/components/sections/Hero';
+import Hero from '@/components/sections/hero';
 import About from '@/components/sections/About';
 import Destinations from '@/components/sections/Destinations';
 import Services from '@/components/sections/Services';
