@@ -1,23 +1,36 @@
 import { useTranslations } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 
+/**
+ * HeroContent — renders above the carousel backdrop.
+ * All content is static text → no 'use client' needed.
+ * Translations are resolved server-side via next-intl RSC support.
+ */
 export default function HeroContent() {
   const t = useTranslations('hero');
+
+  // Split title on the <br/> tag so we avoid dangerouslySetInnerHTML
+  const titleLines = t('newTitle').split(/<br\s*\/?>/i);
 
   return (
     <div className="absolute inset-0 flex items-center pt-20">
       <div className="section-shell w-full">
         <div className="max-w-[900px] md:pl-10 lg:pl-16">
-          {/* Badge */}
+
+          {/* Company badge */}
           <p className="mb-6 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80 dark:text-white/70">
             {t('companyName')}
           </p>
 
-          {/* Title */}
-          <h1
-            className="font-display text-[42px] font-black leading-[1.05] text-white md:text-[64px] lg:text-[76px] [text-shadow:0_2px_30px_rgba(0,0,0,0.4)]"
-            dangerouslySetInnerHTML={{ __html: t('newTitle') }}
-          />
+          {/* H1 — one per page, critical for SEO */}
+          <h1 className="font-display text-[42px] font-black leading-[1.05] text-white md:text-[64px] lg:text-[76px] [text-shadow:0_2px_30px_rgba(0,0,0,0.4)]">
+            {titleLines.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < titleLines.length - 1 && <br />}
+              </span>
+            ))}
+          </h1>
 
           {/* Description */}
           <p className="mt-6 max-w-150 text-[16px] leading-relaxed text-white/90 dark:text-white/80 md:text-[18px]">
@@ -40,6 +53,7 @@ export default function HeroContent() {
               {t('secondaryCtaNew')}
             </a>
           </div>
+
         </div>
       </div>
     </div>

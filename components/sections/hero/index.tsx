@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import HeroBackground from './components/HeroBackground';
 import HeroArrows from './components/HeroArrows';
 import HeroContent from './components/HeroContent';
 
+// Hoisted to module level — never recreated on re-render
 const HERO_IMAGES = [
   '/images/hero/unsplash_3XeTyJW4mWs.jpg',
   '/images/hero/unsplash_6lrnBIBUbgg.jpg',
@@ -21,44 +22,44 @@ const HERO_IMAGES = [
   '/images/hero/unsplash_niFWqrLdjlE.jpg',
   '/images/hero/unsplash_wUk2U5Wirxg.jpg',
   '/images/hero/unsplash_xCrdGY4Ung4.jpg',
-];
+] as const;
+
+const TOTAL = HERO_IMAGES.length;
+const AUTOPLAY_INTERVAL = 5000;
 
 export default function Hero() {
   const t = useTranslations('hero');
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % HERO_IMAGES.length);
-  };
+  // Stable callbacks — useCallback with no deps (functional setState)
+  const next = useCallback(
+    () => setCurrentIndex((i) => (i + 1) % TOTAL),
+    [],
+  );
+  const prev = useCallback(
+    () => setCurrentIndex((i) => (i - 1 + TOTAL) % TOTAL),
+    [],
+  );
 
-  const prevSlide = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
-  };
-
-  // Optional: Auto-play functionality
+  // Auto-play: depends only on stable `next` reference
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+    const id = setInterval(next, AUTOPLAY_INTERVAL);
+    return () => clearInterval(id);
+  }, [next]);
 
   return (
     <section
       id="hero"
+      aria-label={t('companyName')}
       className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden bg-black"
     >
-      <HeroBackground 
-        images={HERO_IMAGES} 
-        currentIndex={currentImageIndex} 
-        imageAlt={t('imageAlt')} 
+      <HeroBackground
+        images={HERO_IMAGES}
+        currentIndex={currentIndex}
+        imageAlt={t('imageAlt')}
       />
-      
-      <HeroArrows 
-        onPrev={prevSlide} 
-        onNext={nextSlide} 
-      />
+
+      <HeroArrows onPrev={prev} onNext={next} />
 
       <HeroContent />
     </section>
