@@ -18,6 +18,8 @@ export default function ContactForm() {
       id: 'hcmc',
       title: t('office1Title'),
       address: t('office1Address'),
+      // replace truth address with correct lat/lng in vi and en json files for ping correctly in google maps
+      mapQuery: t('office1MapQuery'),
       imgAlt: t('office1ImgAlt'),
       image: OFFICE_IMAGES.hcmc,
     },
@@ -25,6 +27,8 @@ export default function ContactForm() {
       id: 'angiang',
       title: t('office2Title'),
       address: t('office2Address'),
+      // replace truth address with correct lat/lng in vi and en json files for ping correctly in google maps
+      mapQuery: t('office2MapQuery'),
       imgAlt: t('office2ImgAlt'),
       image: OFFICE_IMAGES.angiang,
     },
@@ -128,7 +132,7 @@ export default function ContactForm() {
         {/* Office Cards */}
         <div className="flex h-full flex-col gap-8">
           {offices.map((office) => {
-            const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address)}`;
+            const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.mapQuery || office.address)}`;
             return (
               <article
                 key={office.id}
@@ -136,7 +140,7 @@ export default function ContactForm() {
               >
                 <iframe
                   title={office.title}
-                  src={`https://maps.google.com/maps?q=${encodeURIComponent(office.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(office.mapQuery || office.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
                   className="absolute inset-0 h-full w-full border-0"
                   allowFullScreen
                   loading="lazy"
