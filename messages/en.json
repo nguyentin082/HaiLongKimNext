@@ -136,6 +136,7 @@
   "contact": {
     "eyebrow": "Contact us",
     "title": "Start planning the next trip now.",
+    "subtitle": "Leave your information, our travel experts will contact you shortly to help you design the perfect itinerary.",
     "fieldName": "Full name",
     "fieldNamePlaceholder": "Jane Doe",
     "fieldPhone": "Phone number",

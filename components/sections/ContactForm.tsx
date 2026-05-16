@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { Copy, MapPinned, Route } from 'lucide-react';
+import { Copy, MapPinned, Route, ChevronDown } from 'lucide-react';
 
 const OFFICE_IMAGES = {
   hcmc: 'https://www.figma.com/api/mcp/asset/91950ad6-a8b2-4ee9-b2e0-c0a8c532a4a6',
@@ -42,61 +42,83 @@ export default function ContactForm() {
     }
   };
 
+  const glassAddressClasses =
+    'inline-flex rounded-[24px] border-0 bg-white/90 px-4 py-[13px] text-[15px] font-semibold text-[#1F2F2F] shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-xl backdrop-saturate-150 dark:bg-black/75 dark:text-white dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-colors duration-300';
+
+  const glassButtonClasses =
+    'inline-flex items-center gap-2 rounded-[24px] border-0 bg-white/90 px-5 py-[13px] text-[15px] font-semibold text-[#1F2F2F] shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] active:scale-[0.98] dark:bg-black/75 dark:text-white dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] dark:hover:bg-black/90 dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)]';
+
+  const inputClasses =
+    'h-[56px] w-full rounded-[16px] border-0 bg-[#F4F4F5] px-5 text-[16px] text-[#1F2F2F] shadow-none outline-none transition-all duration-300 placeholder:text-[#697575] hover:bg-[#E4E4E7] focus:bg-[#FFFFFF] focus:ring-2 focus:ring-[#087C7A]/20 dark:bg-[#112325] dark:text-[#EDF7F6] dark:placeholder:text-[#9BABAB] dark:hover:bg-[#162B2D] dark:focus:bg-[#0F1C1E]';
+
+  const textareaClasses =
+    'w-full rounded-[16px] border-0 bg-[#F4F4F5] px-5 py-4 text-[16px] text-[#1F2F2F] shadow-none outline-none transition-all duration-300 placeholder:text-[#697575] hover:bg-[#E4E4E7] focus:bg-[#FFFFFF] focus:ring-2 focus:ring-[#087C7A]/20 resize-y dark:bg-[#112325] dark:text-[#EDF7F6] dark:placeholder:text-[#9BABAB] dark:hover:bg-[#162B2D] dark:focus:bg-[#0F1C1E]';
+
   return (
     <section id="contact" className="section-shell py-12 md:py-16">
       <div className="grid gap-8 xl:grid-cols-[560px_minmax(0,1fr)]">
         {/* Form */}
-        <div className="rounded-[24px] border border-border bg-card p-6 soft-shadow md:p-8">
+        <div className="rounded-[24px] border-0 bg-card p-6 shadow-[0_30px_80px_-15px_rgba(0,0,0,0.2)] transition-shadow duration-500 hover:shadow-[0_40px_100px_-15px_rgba(0,0,0,0.25)] dark:shadow-[0_30px_80px_-15px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.2),inset_0_0_0_1px_rgba(255,255,255,0.05)] dark:hover:shadow-[0_40px_100px_-15px_rgba(0,0,0,0.9),inset_0_1px_0_0_rgba(255,255,255,0.3),inset_0_0_0_1px_rgba(255,255,255,0.1)] md:p-8">
           <p className="font-display text-[14px] font-bold uppercase tracking-[0.18em] text-primary">
             {t('eyebrow')}
           </p>
           <h2 className="mt-3 font-display text-[32px] font-extrabold text-text-secondary md:text-[40px]">
             {t('title')}
           </h2>
+          <p className="mt-4 text-[16px] leading-relaxed text-text-muted">{t('subtitle')}</p>
           <form className="mt-8 space-y-[22px]" onSubmit={(e) => e.preventDefault()}>
-            <div>
-              <label className="mb-[8.5px] block text-[14px] font-bold text-primary">
-                {t('fieldName')}
-              </label>
-              <input
-                type="text"
-                placeholder={t('fieldNamePlaceholder')}
-                className="h-[50px] w-full rounded-[24px] border border-border bg-muted-bg px-4 text-[16px] text-foreground outline-none placeholder:text-text-muted focus:border-primary/50 focus:ring-2 focus:ring-primary/20"
-              />
+            <div className="grid grid-cols-1 gap-[22px] md:grid-cols-2">
+              <div>
+                <label className="mb-2.5 block text-[14px] font-bold text-primary">
+                  {t('fieldName')}
+                </label>
+                <input
+                  type="text"
+                  placeholder={t('fieldNamePlaceholder')}
+                  className={inputClasses}
+                />
+              </div>
+              <div>
+                <label className="mb-2.5 block text-[14px] font-bold text-primary">
+                  {t('fieldPhone')}
+                </label>
+                <input
+                  type="tel"
+                  placeholder={t('fieldPhonePlaceholder')}
+                  className={inputClasses}
+                />
+              </div>
             </div>
             <div>
-              <label className="mb-[8.5px] block text-[14px] font-bold text-primary">
-                {t('fieldPhone')}
-              </label>
-              <input
-                type="tel"
-                placeholder={t('fieldPhonePlaceholder')}
-                className="h-[50px] w-full rounded-[24px] border border-border bg-muted-bg px-4 text-[16px] text-foreground outline-none placeholder:text-text-muted focus:border-primary/50 focus:ring-2 focus:ring-primary/20"
-              />
-            </div>
-            <div>
-              <label className="mb-[8.5px] block text-[14px] font-bold text-primary">
+              <label className="mb-2.5 block text-[14px] font-bold text-primary">
                 {t('fieldService')}
               </label>
-              <select className="h-[50px] w-full rounded-[24px] border border-border bg-muted-bg px-4 text-[16px] text-foreground outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20">
-                {serviceOptions.map((option) => (
-                  <option key={option}>{option}</option>
-                ))}
-              </select>
+              <div className="relative">
+                <select
+                  className={`${inputClasses} peer appearance-none pr-12 cursor-pointer dark:bg-[#15282a] dark:text-foreground`}
+                >
+                  {serviceOptions.map((option) => (
+                    <option key={option} className="dark:bg-[#15282a] dark:text-foreground">
+                      {option}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="pointer-events-none absolute right-5 top-1/2 h-5 w-5 -translate-y-1/2 text-text-muted transition-colors duration-300 peer-focus:text-primary" />
+              </div>
             </div>
             <div>
-              <label className="mb-[8.5px] block text-[14px] font-bold text-primary">
+              <label className="mb-2.5 block text-[14px] font-bold text-primary">
                 {t('fieldMessage')}
               </label>
               <textarea
-                rows={6}
+                rows={5}
                 placeholder={t('fieldMessagePlaceholder')}
-                className="w-full rounded-[24px] border border-border bg-muted-bg px-[17px] py-[13px] text-[16px] text-foreground outline-none placeholder:text-text-muted focus:border-primary/50 focus:ring-2 focus:ring-primary/20"
+                className={textareaClasses}
               />
             </div>
             <button
               type="submit"
-              className="flex h-[62px] w-full items-center justify-center rounded-[16px] bg-accent px-10 py-[17px] text-[18px] font-bold text-accent-foreground card-shadow transition-transform hover:-translate-y-0.5"
+              className="mt-2 flex h-[56px] w-full items-center justify-center rounded-[16px] bg-[#F79009] px-10 text-[16px] font-bold text-white transition-all hover:bg-[#EA7A08] active:scale-[0.98] shadow-md hover:shadow-lg dark:bg-[#FF9F1C] dark:hover:bg-[#FFB44D] dark:text-[#241303]"
             >
               {t('submit')}
             </button>
@@ -104,30 +126,31 @@ export default function ContactForm() {
         </div>
 
         {/* Office Cards */}
-        <div className="grid gap-8">
+        <div className="flex h-full flex-col gap-8">
           {offices.map((office) => {
             const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(office.address)}`;
             return (
               <article
                 key={office.id}
-                className="relative overflow-hidden rounded-[24px] border border-border soft-shadow"
+                className="relative flex-1 min-h-[324px] overflow-hidden rounded-[24px] border-0 bg-card shadow-[0_30px_80px_-15px_rgba(0,0,0,0.2)] transition-shadow duration-500 hover:shadow-[0_40px_100px_-15px_rgba(0,0,0,0.25)] dark:shadow-[0_30px_80px_-15px_rgba(0,0,0,0.8),inset_0_1px_0_0_rgba(255,255,255,0.2),inset_0_0_0_1px_rgba(255,255,255,0.05)] dark:hover:shadow-[0_40px_100px_-15px_rgba(0,0,0,0.9),inset_0_1px_0_0_rgba(255,255,255,0.3),inset_0_0_0_1px_rgba(255,255,255,0.1)]"
               >
-                <img
-                  src={office.image}
-                  alt={office.imgAlt}
-                  className="h-[324px] w-full object-cover"
+                <iframe
+                  title={office.title}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(office.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                  className="absolute inset-0 h-full w-full border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
                 <div className="absolute inset-x-0 top-6 px-7">
-                  <div className="inline-flex rounded-[24px] border border-border/60 bg-card/95 px-4 py-[13px] text-[16px] font-bold text-foreground map-label backdrop-blur">
-                    {office.address}
-                  </div>
+                  <div className={glassAddressClasses}>{office.address}</div>
                 </div>
                 <div className="absolute inset-x-0 bottom-6 flex flex-wrap gap-[18px] px-7">
                   <a
                     href={mapsLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-accent-foreground map-label"
+                    className={glassButtonClasses}
                   >
                     <MapPinned className="h-4 w-4" />
                     {t('actionMaps')}
@@ -136,7 +159,7 @@ export default function ContactForm() {
                     href={mapsLink}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-accent-foreground map-label"
+                    className={glassButtonClasses}
                   >
                     <Route className="h-4 w-4" />
                     {t('actionDirections')}
@@ -144,7 +167,7 @@ export default function ContactForm() {
                   <button
                     type="button"
                     onClick={() => handleCopyAddress(office.id, office.address)}
-                    className="inline-flex items-center gap-2 rounded-[24px] bg-accent px-5 py-[13px] text-[16px] font-bold text-accent-foreground map-label"
+                    className={glassButtonClasses}
                   >
                     <Copy className="h-4 w-4" />
                     {copiedOffice === office.id ? t('actionCopied') : t('actionCopy')}
