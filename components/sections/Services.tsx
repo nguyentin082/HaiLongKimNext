@@ -40,16 +40,14 @@ function ServiceBadge({ label, variant }: { label: string; variant: BadgeVariant
       <div
         className={[
           'flex items-center gap-1.5 rounded-full px-3.5 py-1.5',
-          // Solid, vibrant background with NO border — minimalist but striking
+          'bg-white/85 backdrop-blur-md border border-white/20 shadow-sm dark:bg-black/50 dark:border-white/10',
           isAccent
-            ? 'bg-[#F79009] text-white shadow-[0_4px_14px_rgba(247,144,9,0.5)]'
-            : 'bg-[#087C7A] text-white shadow-[0_4px_14px_rgba(8,124,122,0.5)]',
+            ? 'text-amber-600 dark:text-amber-400'
+            : 'text-emerald-700 dark:text-emerald-400',
         ].join(' ')}
       >
-        <Icon className="w-3.5 h-3.5 drop-shadow-sm" strokeWidth={2.5} />
-        <span className="text-[11px] font-extrabold uppercase tracking-[0.12em] drop-shadow-sm pt-[1px]">
-          {label}
-        </span>
+        <Icon className="w-3.5 h-3.5" strokeWidth={1.5} />
+        <span className="text-[11px] font-bold uppercase tracking-wider">{label}</span>
       </div>
     </div>
   );
@@ -95,6 +93,8 @@ export default function Services() {
       image: SERVICE_IMAGES[0],
       alt: t('item1Alt'),
       badge: { label: t('item1Badge'), variant: 'accent' as BadgeVariant },
+      buttonText: t('item1CTA'),
+      buttonLink: t('item1Link'),
     },
     {
       category: t('item2Category'),
@@ -104,7 +104,8 @@ export default function Services() {
       image: SERVICE_IMAGES[1],
       alt: t('item2Alt'),
       badge: { label: t('item2Badge'), variant: 'primary' as BadgeVariant },
-      buttonText: t('contactBtn'),
+      buttonText: t('item2CTA'),
+      buttonLink: t('item2Link'),
     },
     {
       category: t('item3Category'),
@@ -113,6 +114,8 @@ export default function Services() {
       features: t('item3Features').split('|'),
       image: SERVICE_IMAGES[2],
       alt: t('item3Alt'),
+      buttonText: t('item3CTA'),
+      buttonLink: t('item3Link'),
     },
     {
       category: t('item4Category'),
@@ -121,6 +124,8 @@ export default function Services() {
       features: t('item4Features').split('|'),
       image: SERVICE_IMAGES[3],
       alt: t('item4Alt'),
+      buttonText: t('item4CTA'),
+      buttonLink: t('item4Link'),
     },
   ];
 
