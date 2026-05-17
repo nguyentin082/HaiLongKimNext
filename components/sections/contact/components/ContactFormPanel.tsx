@@ -42,7 +42,7 @@ export function ContactFormPanel() {
 
         <button
           type="submit"
-          className="mt-2 flex h-[56px] w-full items-center justify-center rounded-[16px] bg-[#F79009] px-10 text-[16px] font-bold text-white transition-all hover:bg-[#EA7A08] active:scale-[0.98] shadow-md hover:shadow-lg dark:bg-[#FF9F1C] dark:hover:bg-[#FFB44D] dark:text-[#241303]"
+          className="mt-2 flex h-[56px] w-full cursor-pointer items-center justify-center rounded-[16px] bg-[#F79009] px-10 text-[16px] font-bold text-white transition-all hover:bg-[#EA7A08] active:scale-[0.98] shadow-md hover:shadow-lg dark:bg-[#FF9F1C] dark:hover:bg-[#FFB44D] dark:text-[#241303]"
         >
           {t('submit')}
         </button>
