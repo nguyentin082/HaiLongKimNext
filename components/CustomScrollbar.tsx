@@ -128,6 +128,8 @@ export default function CustomScrollbar() {
         onMouseLeave={() => setIsHovered(false)}
       />
       <div
+        role="scrollbar"
+        aria-orientation="vertical"
         className={`absolute right-1 w-1.5 rounded-full backdrop-blur-md pointer-events-auto ${
           isHovered || isScrolling || isDragging
             ? 'bg-gray-600/60 dark:bg-gray-400/60 opacity-100' 
