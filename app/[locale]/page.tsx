@@ -1,11 +1,13 @@
 import { Metadata } from 'next';
 import Header from '@/components/sections/header';
 import Hero from '@/components/sections/hero';
-import About from '@/components/sections/About';
+import About from '@/components/sections/about';
+import WhyChooseUs from '@/components/sections/why-choose-us';
 import Destinations from '@/components/sections/Destinations';
 import Services from '@/components/sections/Services';
 import Gallery from '@/components/sections/Gallery';
-import Testimonials from '@/components/sections/Testimonials';
+import Testimonials from '@/components/sections/testimonials';
+import Partners from '@/components/sections/partners';
 import ContactSection from '@/components/sections/contact';
 import Footer from '@/components/sections/Footer';
 import FabSection from '@/components/sections/fab';
@@ -45,10 +47,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <main>
         <Hero />
         <About />
+        <WhyChooseUs />
         <Destinations />
         <Services />
         <Gallery />
         <Testimonials />
+        <Partners />
         <ContactSection />
       </main>
       <Footer />
