@@ -1,0 +1,65 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
+const LOGO_SRC = 'https://www.figma.com/api/mcp/asset/96b98671-57a5-4a77-84ae-57206e6ff535';
+
+export default function About() {
+  const tAbout = useTranslations('about');
+  const checks = [tAbout('check1'), tAbout('check2'), tAbout('check3'), tAbout('check4')];
+
+  return (
+    <section id="about" className="section-shell py-12 md:py-16">
+      <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div>
+          <p className="font-display text-[14px] font-bold uppercase tracking-[0.14em] text-accent">
+            {tAbout('eyebrow')}
+          </p>
+          <h2 className="mt-3 font-display text-[32px] font-extrabold leading-tight text-text-secondary md:text-[44px]">
+            {tAbout('title')}
+          </h2>
+          <p className="mt-5 max-w-162.5 text-[15px] leading-8 text-text-muted md:text-[16px]">
+            {tAbout('description')}
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {checks.map((check, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-success/10 text-success">
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span className="text-[15px] font-semibold text-text-secondary">{check}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-5">
+          <div className="relative rounded-4xl bg-card p-8 soft-shadow border border-border">
+            <div className="flex flex-col items-center justify-center gap-6 text-center md:flex-row md:text-left">
+              <img src={LOGO_SRC} alt={tAbout('logoAlt')} className="w-full max-w-60" />
+              <div className="absolute -bottom-6 -right-6 rounded-3xl bg-success px-6 py-5 text-success-foreground shadow-xl max-w-50">
+                <p className="text-[32px] font-extrabold leading-none">
+                  {tAbout('hotlineLabel')}
+                </p>
+                <p className="mt-2 text-[13px] font-semibold uppercase tracking-wider leading-snug">
+                  {tAbout('hotlineValue')}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
