@@ -210,10 +210,22 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    /* Ẩn scrollbar mặc định hoàn toàn để dùng CustomScrollbar JS */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
   }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-nunito-sans), sans-serif;
+  }
+  *::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    display: none;
   }
 }
 

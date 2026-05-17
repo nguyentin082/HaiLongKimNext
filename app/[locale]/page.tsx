@@ -6,9 +6,9 @@ import Destinations from '@/components/sections/Destinations';
 import Services from '@/components/sections/Services';
 import Gallery from '@/components/sections/Gallery';
 import Testimonials from '@/components/sections/Testimonials';
-import ContactForm from '@/components/sections/ContactForm';
+import ContactSection from '@/components/sections/contact';
 import Footer from '@/components/sections/Footer';
-import FloatingContact from '@/components/sections/FloatingContact';
+import FabSection from '@/components/sections/fab';
 
 export const metadata: Metadata = {
   title: 'Hải Long Kim Tourist - Khám Phá Việt Nam',
@@ -49,10 +49,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <Services />
         <Gallery />
         <Testimonials />
-        <ContactForm />
+        <ContactSection />
       </main>
       <Footer />
-      <FloatingContact />
+      <FabSection />
     </div>
   );
 }
