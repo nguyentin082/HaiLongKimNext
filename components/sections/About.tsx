@@ -1,85 +1,109 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import {
+  BadgeCheck,
+  MapPin,
+  Wallet,
+  History,
+  Award,
+  Map,
+  Headphones,
+  Plane,
+  Compass,
+  Palmtree,
+} from 'lucide-react';
 
-const LOGO_SRC = 'https://www.figma.com/api/mcp/asset/96b98671-57a5-4a77-84ae-57206e6ff535';
+const LOGO_SRC = 'https://placehold.co/400x400/eaf7f6/087c7a.png?text=Logo+Travel+HK';
 
 export default function About() {
   const tAbout = useTranslations('about');
   const tReasons = useTranslations('reasons');
 
-  const checks = [tAbout('check1'), tAbout('check2'), tAbout('check3'), tAbout('check4')];
+  const checks = [
+    { text: tAbout('check1'), icon: <BadgeCheck className="w-5 h-5" /> },
+    { text: tAbout('check2'), icon: <MapPin className="w-5 h-5" /> },
+    { text: tAbout('check3'), icon: <Wallet className="w-5 h-5" /> },
+    { text: tAbout('check4'), icon: <History className="w-5 h-5" /> },
+  ];
 
   const reasonItems = [
     {
       id: tReasons('item1Id'),
       title: tReasons('item1Title'),
       description: tReasons('item1Desc'),
-      icon: '🌟',
+      icon: <Award className="w-8 h-8" />,
     },
     {
       id: tReasons('item2Id'),
       title: tReasons('item2Title'),
       description: tReasons('item2Desc'),
-      icon: '📋',
+      icon: <Map className="w-8 h-8" />,
     },
     {
       id: tReasons('item3Id'),
       title: tReasons('item3Title'),
       description: tReasons('item3Desc'),
-      icon: '🎧',
+      icon: <Headphones className="w-8 h-8" />,
     },
   ];
 
   return (
     <>
-      {/* Overview / About Section */}
-      <section id="about" className="section-shell py-12 md:py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <section id="about" className="relative section-shell py-12 md:py-20">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center relative z-10">
           <div>
-            <p className="font-display text-[14px] font-bold uppercase tracking-[0.14em] text-accent">
+            <p className="font-display text-[14px] font-bold uppercase tracking-[0.14em] text-primary flex items-center gap-2">
+              <MapPin className="w-4 h-4" />
               {tAbout('eyebrow')}
             </p>
-            <h2 className="mt-3 font-display text-[32px] font-extrabold leading-tight text-text-secondary md:text-[44px]">
+            <h2 className="mt-3 font-display text-[32px] font-extrabold leading-tight text-accent md:text-[44px]">
               {tAbout('title')}
             </h2>
-            <p className="mt-5 max-w-162.5 text-[15px] leading-8 text-text-muted md:text-[16px]">
-              {tAbout('description')}
-            </p>
+            <div className="mt-5 max-w-162.5 space-y-4 text-[15px] italic leading-8 text-text-muted md:text-[16px]">
+              <p>
+                {tAbout.rich('description1', {
+                  strong: (chunks) => <strong className="font-bold text-[#F79009] dark:text-[#FF9F1C]">{chunks}</strong>,
+                })}
+              </p>
+              <p>
+                {tAbout.rich('description2', {
+                  strong: (chunks) => <strong className="font-bold text-[#F79009] dark:text-[#FF9F1C]">{chunks}</strong>,
+                })}
+              </p>
+            </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {checks.map((check, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-full bg-success/10 text-success">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-success/10 text-success">
+                    {check.icon}
                   </div>
-                  <span className="text-[15px] font-semibold text-text-secondary">{check}</span>
+                  <span className="text-[15px] font-semibold text-text-secondary">
+                    {check.text}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
 
           <div className="grid gap-5">
-            <div className="relative rounded-4xl bg-card p-8 soft-shadow border border-border">
-              <div className="flex flex-col items-center justify-center gap-6 text-center md:flex-row md:text-left">
-                <img src={LOGO_SRC} alt={tAbout('logoAlt')} className="w-full max-w-60" />
-                <div className="absolute -bottom-6 -right-6 rounded-3xl bg-success px-6 py-5 text-success-foreground shadow-xl max-w-50">
-                  <p className="text-[32px] font-extrabold leading-none">
+            <div className="relative flex items-center justify-center p-4">
+              <img
+                src={LOGO_SRC}
+                alt={tAbout('logoAlt')}
+                className="relative z-10 w-full max-w-80 object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              <div className="absolute -bottom-6 -right-2 sm:-right-6 z-20 flex items-center gap-4 rounded-3xl bg-card/90 px-6 py-5 shadow-2xl ring-1 ring-border/50 backdrop-blur-xl">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-success/10 text-success">
+                  <Award className="h-7 w-7" strokeWidth={2} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-display text-[32px] font-extrabold leading-none tracking-tight text-foreground">
                     {tAbout('hotlineLabel')}
-                  </p>
-                  <p className="mt-2 text-[13px] font-semibold uppercase tracking-wider leading-snug">
+                  </span>
+                  <span className="mt-1 text-[13px] font-medium leading-snug text-muted-foreground">
                     {tAbout('hotlineValue')}
-                  </p>
+                  </span>
                 </div>
               </div>
             </div>
@@ -89,25 +113,27 @@ export default function About() {
 
       {/* Why Choose Us Section */}
       <section className="section-shell py-12 md:py-16">
-        <div className="rounded-4xl bg-muted-bg px-4 py-10 md:px-8">
-          <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
-            {tReasons('title')}
-          </h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {reasonItems.map((item) => (
-              <article
-                key={item.id}
-                className="rounded-3xl bg-card p-6 text-center soft-shadow border border-border"
-              >
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-[24px]">
-                  {item.icon}
-                </div>
-                <h3 className="mt-4 text-[18px] font-extrabold text-text-secondary">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-[14px] leading-7 text-text-muted">{item.description}</p>
-              </article>
-            ))}
+        <div className="rounded-4xl bg-muted-bg px-4 py-10 md:px-8 relative overflow-hidden">
+          <div className="relative z-10">
+            <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
+              {tReasons('title')}
+            </h2>
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              {reasonItems.map((item) => (
+                <article
+                  key={item.id}
+                  className="rounded-3xl bg-card p-6 text-center soft-shadow border border-border group hover:-translate-y-1 transition-transform duration-300"
+                >
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                    {item.icon}
+                  </div>
+                  <h3 className="mt-5 text-[18px] font-extrabold text-text-secondary">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-[14px] leading-7 text-text-muted">{item.description}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
