@@ -75,7 +75,110 @@
     "dest2Alt": "Đà Nẵng",
     "dest3Tag": "Đảo Phú Quốc",
     "dest3Title": "Kiên Giang",
-    "dest3Alt": "Kiên Giang"
+    "dest3Alt": "Kiên Giang",
+    "dest_laocai_tag": "Sapa",
+    "dest_laocai_title": "Lào Cai",
+    "dest_laocai_alt": "Lào Cai",
+
+    "dest_danang_tag": "Bà Nà Hills",
+    "dest_danang_title": "Đà Nẵng",
+    "dest_danang_alt": "Đà Nẵng",
+
+    "dest_phuquoc_tag": "Đảo Phú Quốc",
+    "dest_phuquoc_title": "Phú Quốc",
+    "dest_phuquoc_alt": "Phú Quốc",
+
+    "dest_hanoi_tag": "Phố Cổ",
+    "dest_hanoi_title": "Hà Nội",
+    "dest_hanoi_alt": "Hà Nội",
+
+    "dest_hagiang_tag": "Cao Nguyên",
+    "dest_hagiang_title": "Hà Giang",
+    "dest_hagiang_alt": "Hà Giang",
+
+    "dest_quangninh_tag": "Vịnh Hạ Long",
+    "dest_quangninh_title": "Quảng Ninh",
+    "dest_quangninh_alt": "Quảng Ninh",
+
+    "dest_hoian_tag": "Phố Cổ",
+    "dest_hoian_title": "Hội An",
+    "dest_hoian_alt": "Hội An",
+
+    "dest_hue_tag": "Kinh Thành",
+    "dest_hue_title": "Huế",
+    "dest_hue_alt": "Huế",
+
+    "dest_quangbinh_tag": "Hang Động & Bờ Biển",
+    "dest_quangbinh_title": "Quảng Bình",
+    "dest_quangbinh_alt": "Quảng Bình",
+
+    "dest_quynhon_tag": "Thành Phố Biển",
+    "dest_quynhon_title": "Quy Nhơn",
+    "dest_quynhon_alt": "Quy Nhơn",
+
+    "dest_cantho_tag": "Đồng Bằng Sông Cửu Long",
+    "dest_cantho_title": "Cần Thơ",
+    "dest_cantho_alt": "Cần Thơ",
+
+    "dest_bentre_tag": "Sông Dừa",
+    "dest_bentre_title": "Bến Tre",
+    "dest_bentre_alt": "Bến Tre",
+
+    "dest_baclieu_tag": "Duyên Hải Nam Bộ",
+    "dest_baclieu_title": "Bạc Liêu",
+    "dest_baclieu_alt": "Bạc Liêu",
+
+    "dest_benninhkieu_tag": "Bờ Sông Cửu Long",
+    "dest_benninhkieu_title": "Bến Ninh Kiều",
+    "dest_benninhkieu_alt": "Bến Ninh Kiều, Cần Thơ",
+
+    "dest_binhthuan_tag": "Biển Xanh",
+    "dest_binhthuan_title": "Bình Thuận",
+    "dest_binhthuan_alt": "Bình Thuận",
+
+    "dest_camau_tag": "Cực Nam Tổ Quốc",
+    "dest_camau_title": "Cà Mau",
+    "dest_camau_alt": "Cà Mau",
+
+    "dest_dongthap_tag": "Miệt Vườn",
+    "dest_dongthap_title": "Đồng Tháp",
+    "dest_dongthap_alt": "Đồng Tháp",
+
+    "dest_khanhhoa_tag": "Vịnh Biển",
+    "dest_khanhhoa_title": "Khánh Hòa",
+    "dest_khanhhoa_alt": "Khánh Hòa",
+
+    "dest_mocchau_tag": "Đồi Chè",
+    "dest_mocchau_title": "Mộc Châu",
+    "dest_mocchau_alt": "Mộc Châu, Sơn La",
+
+    "dest_mytho_tag": "Thành Phố Sông Nước",
+    "dest_mytho_title": "Mỹ Tho",
+    "dest_mytho_alt": "Mỹ Tho",
+
+    "dest_ninhbinh_tag": "Cảnh Quan Núi Đá",
+    "dest_ninhbinh_title": "Ninh Bình",
+    "dest_ninhbinh_alt": "Ninh Bình",
+
+    "dest_phuyen_tag": "Biển Nắng",
+    "dest_phuyen_title": "Phú Yên",
+    "dest_phuyen_alt": "Phú Yên",
+
+    "dest_chaudoc_tag": "Rừng Tràm Trà Sư",
+    "dest_chaudoc_title": "Châu Đốc",
+    "dest_chaudoc_alt": "Rừng Tràm, Châu Đốc",
+
+    "dest_soctrang_tag": "Xứ Chùa Dơi",
+    "dest_soctrang_title": "Sóc Trăng",
+    "dest_soctrang_alt": "Sóc Trăng",
+
+    "dest_tayninh_tag": "Biên Giới Tây Ninh",
+    "dest_tayninh_title": "Tây Ninh",
+    "dest_tayninh_alt": "Tây Ninh",
+
+    "dest_vinhhy_tag": "Vịnh Vĩnh Hy",
+    "dest_vinhhy_title": "Ninh Thuận",
+    "dest_vinhhy_alt": "Vĩnh Hy, Ninh Thuận"
   },
   "services": {
     "title": "Dịch Vụ Nổi Bật",

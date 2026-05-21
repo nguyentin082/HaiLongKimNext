@@ -3,7 +3,7 @@ import Header from '@/components/sections/header';
 import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
 import WhyChooseUs from '@/components/sections/why-choose-us';
-import Destinations from '@/components/sections/Destinations';
+import Destinations from '@/components/sections/destinations';
 import Services from '@/components/sections/services';
 import Gallery from '@/components/sections/Gallery';
 import Testimonials from '@/components/sections/testimonials';
