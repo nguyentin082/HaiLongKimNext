@@ -17,7 +17,7 @@ function StarIcon() {
       height="28"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
+      stroke="url(#icon-brand-gradient)"
       strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -28,7 +28,7 @@ function StarIcon() {
   );
 }
 
-function HeadsetIcon() {
+function SupportAgentIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,19 +36,32 @@ function HeadsetIcon() {
       height="28"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
+      stroke="url(#icon-brand-gradient)"
       strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
-      <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
+      {/* Headset band */}
+      <path d="M4 13a8 8 0 0 1 16 0" />
+      {/* Earpieces */}
+      <rect x="2" y="11" width="4" height="6" rx="1" />
+      <rect x="18" y="11" width="4" height="6" rx="1" />
+      {/* Mic */}
+      <path d="M20 17v4a1 1 0 0 1-1 1h-6" />
+      {/* Head curve - using bezier to ensure reliable rendering */}
+      <path d="M7 14c0-2.8 2.2-5 5-5s5 2.2 5 5" />
+      {/* Hair parting */}
+      <path d="M12 9c-1 2-3 3-5 5" />
+      <path d="M12 9c1 2 3 3 5 5" />
+      {/* Eyes */}
+      <circle cx="9.5" cy="15" r="1.2" fill="url(#icon-brand-gradient)" stroke="none" />
+      <circle cx="14.5" cy="15" r="1.2" fill="url(#icon-brand-gradient)" stroke="none" />
     </svg>
   );
 }
 
-function PriceTagIcon() {
+function StackedMoneyIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -56,20 +69,27 @@ function PriceTagIcon() {
       height="28"
       viewBox="0 0 24 24"
       fill="none"
-      stroke="currentColor"
+      stroke="url(#icon-brand-gradient)"
       strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <rect x="2" y="6" width="20" height="12" rx="2" />
-      <circle cx="12" cy="12" r="2" />
-      <path d="M6 12h.01M18 12h.01" />
+      {/* Back note (stacked effect) */}
+      <path d="M2 8v10a2 2 0 0 0 2 2h14" />
+      {/* Front note */}
+      <rect x="6" y="4" width="16" height="12" rx="2" />
+      <circle cx="14" cy="10" r="2.5" />
+      <path d="M10 10h.01M18 10h.01" />
     </svg>
   );
 }
 
-const ICONS = [<StarIcon key="star" />, <HeadsetIcon key="headset" />, <PriceTagIcon key="price" />];
+const ICONS = [
+  <StarIcon key="star" />,
+  <SupportAgentIcon key="headset" />,
+  <StackedMoneyIcon key="price" />,
+];
 
 export default function WhyChooseUs() {
   const tReasons = useTranslations('reasons');
@@ -96,7 +116,17 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section id="why-choose-us" className="section-shell py-12 md:py-16">
+    <section id="why-choose-us" className="section-shell py-12 md:py-16 relative">
+      {/* Shared Gradient for Icons */}
+      <svg width="0" height="0" className="absolute w-0 h-0" style={{ pointerEvents: 'none' }}>
+        <defs>
+          <linearGradient id="icon-brand-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="rgb(var(--accent))" />
+            <stop offset="100%" stopColor="rgb(var(--primary))" />
+          </linearGradient>
+        </defs>
+      </svg>
+
       <div className="rounded-3xl bg-muted-bg px-6 py-12 md:px-10 md:py-14">
         {/* Section heading */}
         <h2 className="text-center font-display text-[28px] font-extrabold text-primary md:text-[36px]">
@@ -108,22 +138,20 @@ export default function WhyChooseUs() {
           {reasonItems.map((item) => (
             <article
               key={item.id}
-              className="group flex flex-col items-center rounded-3xl bg-card px-8 py-10 text-center soft-shadow border border-border transition-transform duration-300 hover:-translate-y-1"
+              className="group flex flex-col items-center rounded-3xl bg-card px-8 py-10 text-center shadow-[0_10px_30px_-5px_rgba(0,0,0,0.08)] dark:shadow-[0_12px_20px_-8px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_20px_30px_-10px_rgba(0,0,0,0.9)]"
             >
               {/* Icon bubble */}
-              <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary/15">
+              <div className="mb-2 flex h-[80px] w-[80px] items-center justify-center rounded-full bg-black/5 dark:bg-white/5 transition-colors duration-300 group-hover:bg-black/10 dark:group-hover:bg-white/10">
                 {item.icon}
               </div>
 
               {/* Title */}
-              <h3 className="mt-5 font-display text-[17px] font-bold text-primary">
+              <h3 className="mt-4 font-display text-[22px] font-extrabold brand-gradient pb-1">
                 {item.title}
               </h3>
 
               {/* Description */}
-              <p className="mt-3 text-[14px] leading-7 text-text-muted">
-                {item.description}
-              </p>
+              <p className="mt-3 text-[15px] leading-relaxed text-text-muted">{item.description}</p>
             </article>
           ))}
         </div>
