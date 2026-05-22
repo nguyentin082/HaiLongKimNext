@@ -37,16 +37,17 @@
     "quickLink7": "Mua sắm"
   },
   "about": {
-    "eyebrow": "Đơn vị lữ hành bản địa uy tín",
+    "eyebrow": "VỀ CHÚNG TÔI",
     "title": "Đơn vị lữ hành bản địa uy tín",
-    "description": "Với nhiều năm kinh nghiệm trong lĩnh vực du lịch, chúng tôi tự hào là người bạn đồng hành tin cậy của hàng ngàn du khách trên mọi nẻo đường. Chúng tôi mang đến những trải nghiệm độc đáo, an toàn và chuyên nghiệp nhất cho mỗi chuyến đi của bạn.",
-    "check1": "100+ tour đa dạng",
-    "check2": "10,000+ khách hàng",
-    "check3": "Hỗ trợ 24/7",
-    "check4": "Mức giá cạnh tranh",
+    "description1": "Chào mừng bạn đến với <strong>Hải Long Kim Tourist</strong>, nơi những người con của Việt Nam hội tụ để cùng bạn viết nên những hành trình đầy cảm hứng. Với sự thấu hiểu sâu sắc từng hơi thở của mảnh đất quê hương, chúng tôi tự hào mang đến những trải nghiệm du lịch chân thực, an toàn và chuyên nghiệp nhất.",
+    "description2": "Sở hữu bề dày kinh nghiệm trong ngành lữ hành, chúng tôi luôn đảm bảo sự chu đáo và tinh tế trong từng chi tiết nhỏ nhất của chuyến đi. Tại <strong>Hải Long Kim Tourist</strong>, mỗi hành khách đều có một người đồng hành tận tâm, luôn phục vụ bằng lòng nhiệt thành để cá nhân hóa mọi cung bậc cảm xúc của bạn. Chúng tôi cam kết mang lại giá trị dịch vụ thực chất, từ nơi lưu trú đến ẩm thực, nhằm xứng đáng với niềm tin trọn vẹn mà bạn đã trao gửi. Với tinh thần tiên phong, chúng tôi không ngừng khai phóng những hành trình mới, giúp bạn khám phá vẻ đẹp bất tận của Việt Nam qua những lăng kính độc bản và đầy mới mẻ.",
+    "check1": "Đơn vị uy tín",
+    "check2": "Đội ngũ bản địa",
+    "check3": "Giá cả hợp lý",
+    "check4": "Kinh nghiệm lâu năm",
     "logoAlt": "Logo Hai Long Kim",
-    "hotlineLabel": "10+",
-    "hotlineValue": "Năm kinh nghiệm trong lĩnh vực du lịch"
+    "hotlineLabel": "20+",
+    "hotlineValue": "Năm kinh nghiệm trong lĩnh vực lữ hành bản địa."
   },
   "reasons": {
     "title": "Tại Sao Chọn Chúng Tôi",

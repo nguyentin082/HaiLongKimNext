@@ -37,20 +37,21 @@
     "quickLink7": "Shopping"
   },
   "about": {
-    "eyebrow": "A trusted travel partner",
-    "title": "Trips curated with care and a steady hand.",
-    "description": "We tailor every route to the pace of each group, balancing memorable stops, manageable travel time, and clear support before and during the trip.",
+    "eyebrow": "ABOUT US",
+    "title": "A trusted local travel agency",
+    "description1": "Welcome to <strong>Hai Long Kim Tourist</strong>, where the sons and daughters of Vietnam gather to help you write inspiring journeys. With a deep understanding of every breath of our homeland, we are proud to offer the most authentic, safe, and professional travel experiences.",
+    "description2": "With extensive experience in the travel industry, we always ensure thoughtfulness and subtlety in every small detail of the trip. At <strong>Hai Long Kim Tourist</strong>, every passenger has a dedicated companion, always serving with enthusiasm to personalize every emotion of yours. We are committed to providing genuine service value, from accommodation to cuisine, worthy of the absolute trust you have placed in us. With a pioneering spirit, we continuously unlock new journeys, helping you discover the endless beauty of Vietnam through unique and fresh perspectives.",
     "card1Title": "1:1 planning",
     "card1Desc": "Custom itineraries shaped for families, friends, or private groups.",
     "card2Title": "Transparent pricing",
     "card2Desc": "Clear line items so planning stays easy and decisions stay confident.",
-    "check1": "100+ diverse tours",
-    "check2": "10,000+ customers",
-    "check3": "24/7 support",
-    "check4": "Competitive pricing",
+    "check1": "Trusted agency",
+    "check2": "Local team",
+    "check3": "Reasonable prices",
+    "check4": "Years of experience",
     "logoAlt": "Hai Long Kim logo",
-    "hotlineLabel": "Hotline",
-    "hotlineValue": "0911 234 567"
+    "hotlineLabel": "20+",
+    "hotlineValue": "Years of experience in local travel."
   },
   "reasons": {
     "title": "Why Travel With Us",
