@@ -56,17 +56,14 @@
   "reasons": {
     "title": "Why Travel With Us",
     "item1Id": "01",
-    "item1Title": "Tailored plans",
-    "item1Desc": "Each itinerary is adapted to the group, the trip length, and the mood you want.",
+    "item1Title": "Premium Quality",
+    "item1Desc": "End-to-end service managed in-house, with experienced guides and modern vehicles at every step.",
     "item2Id": "02",
-    "item2Title": "Local insight",
-    "item2Desc": "We blend iconic stops with grounded local experiences that stay memorable.",
+    "item2Title": "24/7 Support",
+    "item2Desc": "Our hotline is always ready — from the moment you plan your trip to the moment you arrive home safely.",
     "item3Id": "03",
-    "item3Title": "Fast support",
-    "item3Desc": "Hotline, Zalo, Messenger, and email move together as one support flow.",
-    "item4Id": "04",
-    "item4Title": "Clear pricing",
-    "item4Desc": "A transparent quote structure makes comparison and approval much easier."
+    "item3Title": "Best Prices",
+    "item3Desc": "Competitive market rates backed by direct partnerships, with attractive deals available year-round."
   },
   "destinations": {
     "title": "Wonderful Destinations",
