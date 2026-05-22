@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { Award, Map, Headphones } from 'lucide-react';
 
 interface ReasonItem {
   id: string;

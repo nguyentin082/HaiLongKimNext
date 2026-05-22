@@ -21,7 +21,7 @@ export const SOCIAL_LINKS = {
 } as const;
 
 export const TRUST_BADGES = {
-  hotline: '10+ năm kinh nghiệm',
+  hotline: '20+ năm kinh nghiệm',
   support: 'Hỗ trợ nhanh',
   quality: 'Chất lượng cao',
 } as const;

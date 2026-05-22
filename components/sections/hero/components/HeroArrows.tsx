@@ -6,7 +6,7 @@ type HeroArrowsProps = {
 };
 
 const BTN_CLASS =
-  'absolute top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur transition-all hover:scale-110 hover:border-white/80 hover:bg-white/20 md:flex lg:h-14 lg:w-14 lg:border-2';
+  'absolute top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-white/10 text-white backdrop-blur transition-[transform,background-color,border-color] duration-200 hover:scale-110 hover:border-white/80 hover:bg-white/20 hover:will-change-transform md:flex lg:h-14 lg:w-14 lg:border-2';
 
 export default function HeroArrows({ onPrev, onNext }: HeroArrowsProps) {
   return (
