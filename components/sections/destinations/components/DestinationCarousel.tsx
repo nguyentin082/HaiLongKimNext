@@ -50,8 +50,8 @@ export default function DestinationCarousel({
         ref={carouselRef}
         className="-mx-4 flex snap-x snap-proximity gap-6 overflow-x-auto px-4"
       >
-        {items.map((item) => (
-          <DestinationCard key={item.id} item={item} />
+        {items.map((item, index) => (
+          <DestinationCard key={item.id} item={item} index={index} />
         ))}
       </div>
 
