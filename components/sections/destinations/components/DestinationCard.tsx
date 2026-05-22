@@ -3,10 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-// Tiny 1×1 neutral-gray pixel encoded in base64 – used as blur placeholder
-// to eliminate layout shift while the real image loads.
-const BLUR_DATA_URL =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==';
+
 
 interface DestinationItemViewModel {
   id: string;
@@ -31,7 +28,6 @@ export default function DestinationCard({ item, index }: DestinationCardProps) {
     <article className="group relative isolate rounded-4xl card-shadow flex-none w-70 sm:w-[320px] md:w-95 lg:w-110 snap-center">
       <div
         className="relative h-110 overflow-hidden rounded-4xl sm:h-130 md:h-150"
-        style={{ willChange: 'transform', contain: 'layout' }}
       >
         {/* Skeleton shimmer — visible until image fires onLoad */}
         <div
@@ -65,12 +61,19 @@ export default function DestinationCard({ item, index }: DestinationCardProps) {
           alt={item.alt}
           fill
           sizes="(min-width: 1280px) 440px, (min-width: 768px) 380px, (min-width: 640px) 320px, 280px"
-          className="object-cover transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105"
-          style={{ opacity: loaded ? 1 : 0 }}
+          // transition-transform only — opacity is handled by the skeleton overlay above,
+          // keeping the <img> layer clean for GPU-composited scale animation.
+          className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-105"
+          style={{
+            opacity: loaded ? 1 : 0,
+            // GPU layer promotion — always active so hover never triggers paint.
+            willChange: 'transform',
+            transform: 'translateZ(0)',
+            backfaceVisibility: 'hidden',
+            WebkitBackfaceVisibility: 'hidden',
+          }}
           priority={isEager}
           loading={isEager ? 'eager' : 'lazy'}
-          placeholder="blur"
-          blurDataURL={BLUR_DATA_URL}
           onLoad={() => setLoaded(true)}
         />
       </div>
