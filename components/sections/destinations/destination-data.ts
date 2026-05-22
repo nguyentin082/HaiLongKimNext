@@ -23,6 +23,7 @@ export interface DestinationItemViewModel {
 }
 
 export const destinationItemsByFilter: Record<DestinationFilterId, DestinationItemData[]> = {
+  // Nổi bật: Lào Cai, Đà Nẵng, Kiên Giang, Cần Thơ
   featured: [
     {
       id: 'laocai',
@@ -41,22 +42,40 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
       altKey: 'dest_danang_alt',
     },
     {
-      id: 'phuquoc',
+      id: 'kiengiang',
       region: 'south',
-      tagKey: 'dest_phuquoc_tag',
-      titleKey: 'dest_phuquoc_title',
+      tagKey: 'dest_kiengiang_tag',
+      titleKey: 'dest_kiengiang_title',
       image: '/images/place/phuquoc.jpg',
-      altKey: 'dest_phuquoc_alt',
+      altKey: 'dest_kiengiang_alt',
+    },
+    {
+      id: 'cantho',
+      region: 'south',
+      tagKey: 'dest_cantho_tag',
+      titleKey: 'dest_cantho_title',
+      image: '/images/place/cantho.jpg',
+      altKey: 'dest_cantho_alt',
     },
   ],
+
+  // Miền Bắc: Quảng Ninh, Lào Cai, Ninh Bình, Hà Nội, Hà Giang, Sơn La
   north: [
     {
-      id: 'hanoi',
+      id: 'quangninh',
       region: 'north',
-      tagKey: 'dest_hanoi_tag',
-      titleKey: 'dest_hanoi_title',
-      image: '/images/place/phoco-hanoi.jpg',
-      altKey: 'dest_hanoi_alt',
+      tagKey: 'dest_quangninh_tag',
+      titleKey: 'dest_quangninh_title',
+      image: '/images/place/quangninh.jpg',
+      altKey: 'dest_quangninh_alt',
+    },
+    {
+      id: 'laocai',
+      region: 'north',
+      tagKey: 'dest_laocai_tag',
+      titleKey: 'dest_laocai_title',
+      image: '/images/place/laocai.jpg',
+      altKey: 'dest_laocai_alt',
     },
     {
       id: 'ninhbinh',
@@ -67,12 +86,12 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
       altKey: 'dest_ninhbinh_alt',
     },
     {
-      id: 'mocchau',
+      id: 'hanoi',
       region: 'north',
-      tagKey: 'dest_mocchau_tag',
-      titleKey: 'dest_mocchau_title',
-      image: '/images/place/mocchau-sonla.jpg',
-      altKey: 'dest_mocchau_alt',
+      tagKey: 'dest_hanoi_tag',
+      titleKey: 'dest_hanoi_title',
+      image: '/images/place/phoco-hanoi.jpg',
+      altKey: 'dest_hanoi_alt',
     },
     {
       id: 'hagiang',
@@ -83,15 +102,33 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
       altKey: 'dest_hagiang_alt',
     },
     {
-      id: 'quangninh',
+      id: 'mocchau',
       region: 'north',
-      tagKey: 'dest_quangninh_tag',
-      titleKey: 'dest_quangninh_title',
-      image: '/images/place/quangninh.jpg',
-      altKey: 'dest_quangninh_alt',
+      tagKey: 'dest_mocchau_tag',
+      titleKey: 'dest_mocchau_title',
+      image: '/images/place/mocchau-sonla.jpg',
+      altKey: 'dest_mocchau_alt',
     },
   ],
+
+  // Miền Trung: Quảng Nam, Đà Nẵng, Quảng Bình, Huế, Phú Yên, Quy Nhơn, Bình Thuận, Ninh Thuận, Khánh Hoà
   central: [
+    {
+      id: 'hoian',
+      region: 'central',
+      tagKey: 'dest_hoian_tag',
+      titleKey: 'dest_hoian_title',
+      image: '/images/place/hoian.jpg',
+      altKey: 'dest_hoian_alt',
+    },
+    {
+      id: 'danang',
+      region: 'central',
+      tagKey: 'dest_danang_tag',
+      titleKey: 'dest_danang_title',
+      image: '/images/place/danang.jpg',
+      altKey: 'dest_danang_alt',
+    },
     {
       id: 'quangbinh',
       region: 'central',
@@ -109,20 +146,12 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
       altKey: 'dest_hue_alt',
     },
     {
-      id: 'danang',
+      id: 'phuyen',
       region: 'central',
-      tagKey: 'dest_danang_tag',
-      titleKey: 'dest_danang_title',
-      image: '/images/place/danang.jpg',
-      altKey: 'dest_danang_alt',
-    },
-    {
-      id: 'hoian',
-      region: 'central',
-      tagKey: 'dest_hoian_tag',
-      titleKey: 'dest_hoian_title',
-      image: '/images/place/hoian.jpg',
-      altKey: 'dest_hoian_alt',
+      tagKey: 'dest_phuyen_tag',
+      titleKey: 'dest_phuyen_title',
+      image: '/images/place/phuyen.jpg',
+      altKey: 'dest_phuyen_alt',
     },
     {
       id: 'quynhon',
@@ -141,14 +170,6 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
       altKey: 'dest_binhthuan_alt',
     },
     {
-      id: 'phuyen',
-      region: 'central',
-      tagKey: 'dest_phuyen_tag',
-      titleKey: 'dest_phuyen_title',
-      image: '/images/place/phuyen.jpg',
-      altKey: 'dest_phuyen_alt',
-    },
-    {
       id: 'vinhhy',
       region: 'central',
       tagKey: 'dest_vinhhy_tag',
@@ -165,7 +186,17 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
       altKey: 'dest_khanhhoa_alt',
     },
   ],
+
+  // Miền Nam: Kiên Giang, Cần Thơ, Tây Ninh, Sóc Trăng, Bạc Liêu, Cà Mau, Châu Đốc, Đồng Tháp, Mỹ Tho, Bến Tre
   south: [
+    {
+      id: 'kiengiang',
+      region: 'south',
+      tagKey: 'dest_kiengiang_tag',
+      titleKey: 'dest_kiengiang_title',
+      image: '/images/place/phuquoc.jpg',
+      altKey: 'dest_kiengiang_alt',
+    },
     {
       id: 'cantho',
       region: 'south',
@@ -175,36 +206,12 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
       altKey: 'dest_cantho_alt',
     },
     {
-      id: 'benninhkieu',
+      id: 'tayninh',
       region: 'south',
-      tagKey: 'dest_benninhkieu_tag',
-      titleKey: 'dest_benninhkieu_title',
-      image: '/images/place/benninhkieu-cantho.jpg',
-      altKey: 'dest_benninhkieu_alt',
-    },
-    {
-      id: 'mytho',
-      region: 'south',
-      tagKey: 'dest_mytho_tag',
-      titleKey: 'dest_mytho_title',
-      image: '/images/place/mytho.jpg',
-      altKey: 'dest_mytho_alt',
-    },
-    {
-      id: 'dongthap',
-      region: 'south',
-      tagKey: 'dest_dongthap_tag',
-      titleKey: 'dest_dongthap_title',
-      image: '/images/place/dongthap.jpg',
-      altKey: 'dest_dongthap_alt',
-    },
-    {
-      id: 'chaudoc',
-      region: 'south',
-      tagKey: 'dest_chaudoc_tag',
-      titleKey: 'dest_chaudoc_title',
-      image: '/images/place/rungtram-chaudoc.jpg',
-      altKey: 'dest_chaudoc_alt',
+      tagKey: 'dest_tayninh_tag',
+      titleKey: 'dest_tayninh_title',
+      image: '/images/place/tayninh.jpg',
+      altKey: 'dest_tayninh_alt',
     },
     {
       id: 'soctrang',
@@ -231,12 +238,36 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
       altKey: 'dest_camau_alt',
     },
     {
-      id: 'tayninh',
+      id: 'chaudoc',
       region: 'south',
-      tagKey: 'dest_tayninh_tag',
-      titleKey: 'dest_tayninh_title',
-      image: '/images/place/tayninh.jpg',
-      altKey: 'dest_tayninh_alt',
+      tagKey: 'dest_chaudoc_tag',
+      titleKey: 'dest_chaudoc_title',
+      image: '/images/place/rungtram-chaudoc.jpg',
+      altKey: 'dest_chaudoc_alt',
+    },
+    {
+      id: 'dongthap',
+      region: 'south',
+      tagKey: 'dest_dongthap_tag',
+      titleKey: 'dest_dongthap_title',
+      image: '/images/place/dongthap.jpg',
+      altKey: 'dest_dongthap_alt',
+    },
+    {
+      id: 'mytho',
+      region: 'south',
+      tagKey: 'dest_mytho_tag',
+      titleKey: 'dest_mytho_title',
+      image: '/images/place/mytho.jpg',
+      altKey: 'dest_mytho_alt',
+    },
+    {
+      id: 'bentre',
+      region: 'south',
+      tagKey: 'dest_bentre_tag',
+      titleKey: 'dest_bentre_title',
+      image: '/images/place/bentre.jpg',
+      altKey: 'dest_bentre_alt',
     },
   ],
 } as const;

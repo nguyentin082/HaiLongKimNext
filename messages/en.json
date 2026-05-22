@@ -90,9 +90,9 @@
     "dest_danang_title": "Da Nang",
     "dest_danang_alt": "Da Nang",
 
-    "dest_phuquoc_tag": "Phu Quoc Island",
-    "dest_phuquoc_title": "Phu Quoc",
-    "dest_phuquoc_alt": "Phu Quoc",
+    "dest_kiengiang_tag": "Phu Quoc Island",
+    "dest_kiengiang_title": "Kien Giang",
+    "dest_kiengiang_alt": "Kien Giang",
 
     "dest_hanoi_tag": "Old Quarter",
     "dest_hanoi_title": "Hanoi",
@@ -134,9 +134,6 @@
     "dest_baclieu_title": "Bac Lieu",
     "dest_baclieu_alt": "Bac Lieu",
 
-    "dest_benninhkieu_tag": "Mekong Riverside",
-    "dest_benninhkieu_title": "Ben Ninh Kieu",
-    "dest_benninhkieu_alt": "Ben Ninh Kieu, Can Tho",
 
     "dest_binhthuan_tag": "Coastal Escape",
     "dest_binhthuan_title": "Binh Thuan",
