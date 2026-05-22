@@ -17,6 +17,7 @@ export default function Destinations() {
   const [activeFilter, setActiveFilter] = useState<DestinationFilterId>('featured');
   const carouselRef = useRef<HTMLDivElement | null>(null);
   const [isPaused, setIsPaused] = useState(false);
+  const isScrollingRef = useRef(false);
 
   const filters = useMemo<DestinationFilter[]>(
     () => [
@@ -66,20 +67,29 @@ export default function Destinations() {
   }, [scrollByAmount]);
 
   useEffect(() => {
-    if (!carouselRef.current) return;
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const onScrollEnd = () => {
+      isScrollingRef.current = false;
+    };
+    el.addEventListener('scrollend', onScrollEnd);
 
     let id: number | undefined;
 
-    if (!isPaused && visibleItems.length > 1) {
+    if (!isPaused) {
       id = window.setInterval(() => {
+        if (isScrollingRef.current) return;
+        isScrollingRef.current = true;
         scrollNext();
       }, 4000);
     }
 
     return () => {
       if (id) window.clearInterval(id);
+      el.removeEventListener('scrollend', onScrollEnd);
     };
-  }, [isPaused, visibleItems]);
+  }, [isPaused, scrollNext]);
 
   const handleFilterClick = useCallback((id: DestinationFilterId) => {
     setActiveFilter(id);

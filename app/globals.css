@@ -303,12 +303,25 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
-  /* Smooth theme transitions */
-  .theme-transition,
-  .theme-transition * {
-    transition-property: background-color, border-color, color, fill, stroke, opacity;
+  /* Smooth theme transitions — chỉ áp dụng cho màu sắc, KHÔNG ghi đè transform transitions */
+  .theme-transition {
+    transition-property: background-color;
     transition-duration: 250ms;
     transition-timing-function: ease;
+  }
+
+  /* Theme toggle animation — triggered by use-theme.ts hook for 500ms */
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow, filter;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 }
 
