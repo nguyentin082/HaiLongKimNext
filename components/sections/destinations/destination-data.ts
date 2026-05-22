@@ -23,7 +23,7 @@ export interface DestinationItemViewModel {
 }
 
 export const destinationItemsByFilter: Record<DestinationFilterId, DestinationItemData[]> = {
-  // Nổi bật: Lào Cai, Đà Nẵng, Kiên Giang, Cần Thơ
+  // Featured: Lao Cai, Da Nang, Kien Giang, Can Tho
   featured: [
     {
       id: 'laocai',
@@ -59,7 +59,7 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
     },
   ],
 
-  // Miền Bắc: Quảng Ninh, Lào Cai, Ninh Bình, Hà Nội, Hà Giang, Sơn La
+  // North: Quang Ninh, Lao Cai, Ninh Binh, Hanoi, Ha Giang, Son La
   north: [
     {
       id: 'quangninh',
@@ -111,7 +111,7 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
     },
   ],
 
-  // Miền Trung: Quảng Nam, Đà Nẵng, Quảng Bình, Huế, Phú Yên, Quy Nhơn, Bình Thuận, Ninh Thuận, Khánh Hoà
+  // Central: Quang Nam, Da Nang, Quang Binh, Hue, Phu Yen, Quy Nhon, Binh Thuan, Ninh Thuan, Khanh Hoa
   central: [
     {
       id: 'hoian',
@@ -187,7 +187,7 @@ export const destinationItemsByFilter: Record<DestinationFilterId, DestinationIt
     },
   ],
 
-  // Miền Nam: Kiên Giang, Cần Thơ, Tây Ninh, Sóc Trăng, Bạc Liêu, Cà Mau, Châu Đốc, Đồng Tháp, Mỹ Tho, Bến Tre
+  // South: Kien Giang, Can Tho, Tay Ninh, Soc Trang, Bac Lieu, Ca Mau, Chau Doc, Dong Thap, My Tho, Ben Tre
   south: [
     {
       id: 'kiengiang',

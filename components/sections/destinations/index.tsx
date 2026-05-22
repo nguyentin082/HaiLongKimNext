@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import DestinationCarousel from './components/DestinationCarousel';
 import DestinationFilterBar from './components/DestinationFilterBar';
@@ -11,13 +11,19 @@ import {
   createDestinationViewModels,
   destinationItemsByFilter,
 } from './destination-data';
+import { useMemo, useState } from 'react';
 
 export default function Destinations() {
   const t = useTranslations('destinations');
   const [activeFilter, setActiveFilter] = useState<DestinationFilterId>('featured');
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const isScrollingRef = useRef(false);
+
+  // Use ref for isPaused to avoid re-creating the interval on every pause toggle
+  const isPausedRef = useRef(false);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // Tracks whether a programmatic smooth scroll is still animating.
+  // Uses a timestamp-based approach instead of scrollend (avoids Safari compat issues)
+  const scrollAnimatingUntilRef = useRef<number>(0);
 
   const filters = useMemo<DestinationFilter[]>(
     () => [
@@ -31,27 +37,26 @@ export default function Destinations() {
 
   const visibleItems = useMemo<DestinationItemViewModel[]>(() => {
     const rawItems = destinationItemsByFilter[activeFilter];
-
     return createDestinationViewModels(rawItems, t);
   }, [activeFilter, t]);
 
+  // Core scroll function — always executes, no blocking guard
   const scrollByAmount = useCallback((amount: number) => {
     const el = carouselRef.current;
     if (!el) return;
 
     const maxScroll = el.scrollWidth - el.clientWidth;
 
-    if (el.scrollLeft + amount >= maxScroll - 4) {
+    if (amount > 0 && el.scrollLeft >= maxScroll - 4) {
       el.scrollTo({ left: 0, behavior: 'smooth' });
-      return;
-    }
-
-    if (el.scrollLeft + amount <= 0 && amount < 0) {
+    } else if (amount < 0 && el.scrollLeft <= 0) {
       el.scrollTo({ left: maxScroll, behavior: 'smooth' });
-      return;
+    } else {
+      el.scrollBy({ left: amount, behavior: 'smooth' });
     }
 
-    el.scrollBy({ left: amount, behavior: 'smooth' });
+    // Mark scroll as animating for ~600ms (typical smooth scroll duration)
+    scrollAnimatingUntilRef.current = Date.now() + 600;
   }, []);
 
   const scrollNext = useCallback(() => {
@@ -66,30 +71,40 @@ export default function Destinations() {
     scrollByAmount(Math.floor(-el.clientWidth * 0.8));
   }, [scrollByAmount]);
 
+  // Auto-scroll interval — stored in ref so pause/resume never restarts the interval
+  const startInterval = useCallback(() => {
+    if (intervalRef.current) return;
+    intervalRef.current = setInterval(() => {
+      // Only scroll if: not paused AND no animation currently in progress
+      if (isPausedRef.current) return;
+      if (Date.now() < scrollAnimatingUntilRef.current) return;
+      scrollNext();
+    }, 4000);
+  }, [scrollNext]);
+
+  const stopInterval = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }, []);
+
+  // Start the interval once on mount, stop on unmount
+  useEffect(() => {
+    startInterval();
+    return stopInterval;
+  }, [startInterval, stopInterval]);
+
+  // Reset scroll position and restart timer when filter changes
   useEffect(() => {
     const el = carouselRef.current;
-    if (!el) return;
+    if (el) el.scrollLeft = 0;
+    scrollAnimatingUntilRef.current = 0;
+  }, [activeFilter]);
 
-    const onScrollEnd = () => {
-      isScrollingRef.current = false;
-    };
-    el.addEventListener('scrollend', onScrollEnd);
-
-    let id: number | undefined;
-
-    if (!isPaused) {
-      id = window.setInterval(() => {
-        if (isScrollingRef.current) return;
-        isScrollingRef.current = true;
-        scrollNext();
-      }, 4000);
-    }
-
-    return () => {
-      if (id) window.clearInterval(id);
-      el.removeEventListener('scrollend', onScrollEnd);
-    };
-  }, [isPaused, scrollNext]);
+  const handlePauseChange = useCallback((paused: boolean) => {
+    isPausedRef.current = paused;
+  }, []);
 
   const handleFilterClick = useCallback((id: DestinationFilterId) => {
     setActiveFilter(id);
@@ -111,7 +126,7 @@ export default function Destinations() {
       <DestinationCarousel
         items={visibleItems}
         carouselRef={carouselRef}
-        onPauseChange={setIsPaused}
+        onPauseChange={handlePauseChange}
         onPrev={scrollPrev}
         onNext={scrollNext}
       />

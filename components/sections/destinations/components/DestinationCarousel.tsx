@@ -26,23 +26,28 @@ export default function DestinationCarousel({
   onPrev,
   onNext,
 }: DestinationCarouselProps) {
+  // Keyboard navigation
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'ArrowRight') onNext();
       if (event.key === 'ArrowLeft') onPrev();
     };
-
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [onNext, onPrev]);
 
   return (
-    <div className="relative mt-10">
+    // Outer wrapper includes both the scroll track and arrow buttons.
+    // Mouse enter/leave is placed here so hovering over a button does not
+    // trigger onMouseLeave on the scroll area and restart the auto-scroll timer.
+    <div
+      className="relative mt-10"
+      onMouseEnter={() => onPauseChange(true)}
+      onMouseLeave={() => onPauseChange(false)}
+    >
       <div
         id="dest-carousel"
         ref={carouselRef}
-        onMouseEnter={() => onPauseChange(true)}
-        onMouseLeave={() => onPauseChange(false)}
         className="-mx-4 flex snap-x snap-proximity gap-6 overflow-x-auto px-4"
       >
         {items.map((item) => (
