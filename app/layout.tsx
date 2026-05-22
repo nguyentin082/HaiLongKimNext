@@ -9,19 +9,19 @@ import './globals.css';
 
 // Configure fonts
 const beVietnamPro = Be_Vietnam_Pro({
-  subsets: ['latin'],
+  subsets: ['latin', 'vietnamese'],
   weight: ['400', '500', '700', '800'],
   variable: '--font-be-vietnam-pro',
 });
 
 const charmonman = Charmonman({
-  subsets: ['latin'],
+  subsets: ['latin', 'vietnamese'],
   weight: ['400', '700'],
   variable: '--font-charmonman',
 });
 
 const nunitoSans = Nunito_Sans({
-  subsets: ['latin'],
+  subsets: ['latin', 'vietnamese'],
   weight: ['400', '600', '700', '800'],
   variable: '--font-nunito-sans',
 });

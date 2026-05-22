@@ -29,6 +29,8 @@ export default function DestinationCarousel({
   // Keyboard navigation
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement)
+        return;
       if (event.key === 'ArrowRight') onNext();
       if (event.key === 'ArrowLeft') onPrev();
     };
