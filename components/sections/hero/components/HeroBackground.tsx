@@ -30,8 +30,7 @@ export default function HeroBackground({
         />
       ))}
 
-      {/* Subtle blur veil (Spotify/Apple premium pattern) */}
-      <div className="absolute inset-0 backdrop-blur-[2px]" />
+
 
       {/* Dynamic dark-mode gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent dark:from-black/70 dark:via-black/40 dark:to-black/20" />
