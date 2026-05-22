@@ -81,7 +81,107 @@
     "dest2Alt": "Da Nang",
     "dest3Tag": "Phu Quoc Island",
     "dest3Title": "Kien Giang",
-    "dest3Alt": "Kien Giang"
+    "dest3Alt": "Kien Giang",
+    "dest_laocai_tag": "Sapa",
+    "dest_laocai_title": "Lao Cai",
+    "dest_laocai_alt": "Lao Cai",
+
+    "dest_danang_tag": "Ba Na Hills",
+    "dest_danang_title": "Da Nang",
+    "dest_danang_alt": "Da Nang",
+
+    "dest_kiengiang_tag": "Phu Quoc Island",
+    "dest_kiengiang_title": "Kien Giang",
+    "dest_kiengiang_alt": "Kien Giang",
+
+    "dest_hanoi_tag": "Old Quarter",
+    "dest_hanoi_title": "Hanoi",
+    "dest_hanoi_alt": "Hanoi",
+
+    "dest_hagiang_tag": "Highlands",
+    "dest_hagiang_title": "Ha Giang",
+    "dest_hagiang_alt": "Ha Giang",
+
+    "dest_quangninh_tag": "Halong Bay",
+    "dest_quangninh_title": "Quang Ninh",
+    "dest_quangninh_alt": "Quang Ninh",
+
+    "dest_hoian_tag": "Ancient Town",
+    "dest_hoian_title": "Hoi An",
+    "dest_hoian_alt": "Hoi An",
+
+    "dest_hue_tag": "Imperial City",
+    "dest_hue_title": "Hue",
+    "dest_hue_alt": "Hue",
+
+    "dest_quangbinh_tag": "Caves & Coast",
+    "dest_quangbinh_title": "Quang Binh",
+    "dest_quangbinh_alt": "Quang Binh",
+
+    "dest_quynhon_tag": "Coastal City",
+    "dest_quynhon_title": "Quy Nhon",
+    "dest_quynhon_alt": "Quy Nhon",
+
+    "dest_cantho_tag": "Mekong Delta",
+    "dest_cantho_title": "Can Tho",
+    "dest_cantho_alt": "Can Tho",
+
+    "dest_bentre_tag": "Coconut River",
+    "dest_bentre_title": "Ben Tre",
+    "dest_bentre_alt": "Ben Tre",
+
+    "dest_baclieu_tag": "Southern Coast",
+    "dest_baclieu_title": "Bac Lieu",
+    "dest_baclieu_alt": "Bac Lieu",
+
+
+    "dest_binhthuan_tag": "Coastal Escape",
+    "dest_binhthuan_title": "Binh Thuan",
+    "dest_binhthuan_alt": "Binh Thuan",
+
+    "dest_camau_tag": "Cape of the South",
+    "dest_camau_title": "Ca Mau",
+    "dest_camau_alt": "Ca Mau",
+
+    "dest_dongthap_tag": "Waterway Heartland",
+    "dest_dongthap_title": "Dong Thap",
+    "dest_dongthap_alt": "Dong Thap",
+
+    "dest_khanhhoa_tag": "Bay Paradise",
+    "dest_khanhhoa_title": "Khanh Hoa",
+    "dest_khanhhoa_alt": "Khanh Hoa",
+
+    "dest_mocchau_tag": "Tea Hills",
+    "dest_mocchau_title": "Moc Chau",
+    "dest_mocchau_alt": "Moc Chau, Son La",
+
+    "dest_mytho_tag": "River City",
+    "dest_mytho_title": "My Tho",
+    "dest_mytho_alt": "My Tho",
+
+    "dest_ninhbinh_tag": "Karst Landscape",
+    "dest_ninhbinh_title": "Ninh Binh",
+    "dest_ninhbinh_alt": "Ninh Binh",
+
+    "dest_phuyen_tag": "Sunny Coast",
+    "dest_phuyen_title": "Phu Yen",
+    "dest_phuyen_alt": "Phu Yen",
+
+    "dest_chaudoc_tag": "Tra Su Wetland",
+    "dest_chaudoc_title": "Chau Doc",
+    "dest_chaudoc_alt": "Tra Su, Chau Doc",
+
+    "dest_soctrang_tag": "Pagoda Country",
+    "dest_soctrang_title": "Soc Trang",
+    "dest_soctrang_alt": "Soc Trang",
+
+    "dest_tayninh_tag": "Border Highlands",
+    "dest_tayninh_title": "Tay Ninh",
+    "dest_tayninh_alt": "Tay Ninh",
+
+    "dest_vinhhy_tag": "Vinh Hy Bay",
+    "dest_vinhhy_title": "Ninh Thuan",
+    "dest_vinhhy_alt": "Vinh Hy, Ninh Thuan"
   },
   "services": {
     "title": "Featured Services",
