@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Be_Vietnam_Pro, Charmonman, Nunito_Sans } from 'next/font/google';
 import JsonLd from '@/components/JsonLd';
 import CustomAnalytics from '@/components/Analytics';
@@ -157,6 +158,7 @@ export default function RootLayout({
         <CustomAnalytics />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
