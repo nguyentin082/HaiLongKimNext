@@ -47,38 +47,8 @@ const AnonAvatar = ({ index, name }: { index: number; name: string }) => {
 };
 
 
-const MOCK_TESTIMONIALS = [
-  {
-    name: 'Chị Nguyễn Thanh Hương',
-    location: 'Hà Nội',
-    quote:
-      '"Gia đình tôi đã có một kỳ nghỉ tuyệt vời. Xe đời mới, tài xế rất nhiệt tình, lái xe an toàn và hỗ trợ chu đáo suốt hành trình."',
-  },
-  {
-    name: 'Anh Lê Văn Nam',
-    location: 'TP. Hồ Chí Minh',
-    quote:
-      '"Tour 4 đảo thực sự ấn tượng. Đặc biệt là bạn hướng dẫn viên chụp ảnh rất có tâm, gia đình tôi có rất nhiều ảnh đẹp."',
-  },
-  {
-    name: 'Bạn Trần Minh Tâm',
-    location: 'Đà Nẵng',
-    quote:
-      '"Giá vé VinWonders tại đây rẻ hơn mua tại quầy. Nhận mã QR ngay lập tức, không phải chờ đợi. Dịch vụ rất nhanh chóng."',
-  },
-  {
-    name: 'Chị Phạm Thị Yến',
-    location: 'Hải Phòng',
-    quote:
-      '"Rất hài lòng với dịch vụ thuê xe tự lái. Thủ tục nhanh gọn, xe sạch sẽ và đầy đủ tiện nghi. Chắc chắn sẽ ủng hộ lại lần sau!"',
-  },
-  {
-    name: 'Anh Hoàng Hải',
-    location: 'Nha Trang',
-    quote:
-      '"Mình đặt vé cáp treo Hòn Thơm và Safari, giá ưu đãi tốt hơn nhiều so với tự mua. Các bạn tư vấn viên hỗ trợ rất nhiệt tình."',
-  },
-];
+
+const TESTIMONIAL_IDS = [0, 1, 2, 3, 4] as const;
 
 export default function Testimonials() {
   const tTest = useTranslations('testimonials');
@@ -97,8 +67,8 @@ export default function Testimonials() {
           className="w-full"
         >
           <CarouselContent className="-ml-4 md:-ml-6 py-4">
-            {MOCK_TESTIMONIALS.map((item, index) => (
-              <CarouselItem key={index} className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3">
+            {TESTIMONIAL_IDS.map((id, index) => (
+              <CarouselItem key={id} className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3">
                 <article
                   className="h-full rounded-3xl p-6 lg:p-8 flex flex-col justify-between gap-6 relative
                              bg-card/60 backdrop-blur-xl
@@ -112,14 +82,14 @@ export default function Testimonials() {
                   </div>
 
                   <p className="text-[15px] leading-relaxed text-text-muted flex-grow">
-                    {item.quote}
+                    {tTest(`item${id}Quote`)}
                   </p>
 
                   <div className="flex items-center gap-4 mt-auto">
-                    <AnonAvatar index={index} name={item.name} />
+                    <AnonAvatar index={index} name={tTest(`item${id}Name`)} />
                     <div>
-                      <p className="font-bold text-text-secondary text-[15px]">{item.name}</p>
-                      <p className="text-[13px] text-text-muted/50">{item.location}</p>
+                      <p className="font-bold text-text-secondary text-[15px]">{tTest(`item${id}Name`)}</p>
+                      <p className="text-[13px] text-text-muted/50">{tTest(`item${id}Location`)}</p>
                     </div>
                   </div>
                 </article>
