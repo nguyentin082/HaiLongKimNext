@@ -6,11 +6,13 @@ import type { GalleryItem } from '../types';
 interface GalleryImageProps {
   item: GalleryItem;
   index: number;
+  onClick?: (item: GalleryItem) => void;
 }
 
-export function GalleryImage({ item, index }: GalleryImageProps) {
+export function GalleryImage({ item, index, onClick }: GalleryImageProps) {
   return (
     <div
+      onClick={() => onClick?.(item)}
       className={cn(
         'group relative rounded-2xl animate-in fade-in zoom-in-95 fill-mode-both cursor-pointer',
         // 1. Smooth lifting and scaling
