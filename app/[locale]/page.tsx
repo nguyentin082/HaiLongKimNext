@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Hải Long Kim Tourist - Khám Phá Việt Nam',
     description: 'Trải nghiệm du lịch tuyệt vời với Hải Long Kim Tourist.',
     type: 'website',
-    url: 'https://hailongkim.com',
+    url: 'https://www.hlktourist.vn',
     images: [
       {
         url: '/hero-bg.jpg',
