@@ -84,6 +84,15 @@ const config: Config = {
         xl: '1280px',
         '2xl': '1536px',
       },
+      animation: {
+        'marquee-up': 'marquee-up 60s linear infinite',
+      },
+      keyframes: {
+        'marquee-up': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-50%)' },
+        },
+      },
     },
   },
   plugins: [],
