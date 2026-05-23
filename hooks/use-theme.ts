@@ -12,8 +12,8 @@ export function useTheme() {
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem('theme') as Theme | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const resolved: Theme = stored ?? (prefersDark ? 'dark' : 'light');
+    // Always default to light mode; only respect a previously stored user preference
+    const resolved: Theme = stored ?? 'light';
     // On initial mount: apply theme WITHOUT the transition class so hover
     // animations work immediately from the first frame.
     applyTheme(resolved, { animate: false });

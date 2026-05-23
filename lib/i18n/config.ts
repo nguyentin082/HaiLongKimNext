@@ -1,7 +1,7 @@
 type Locale = 'en' | 'vi';
 
 export const locales: Locale[] = ['en', 'vi'];
-export const defaultLocale: Locale = 'en';
+export const defaultLocale: Locale = 'vi';
 
 type Messages = typeof import('../../messages/en.json');
 
