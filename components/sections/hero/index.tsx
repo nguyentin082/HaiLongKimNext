@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { useStableViewportHeight } from '@/hooks/use-stable-viewport-height';
 import HeroBackground from './components/HeroBackground';
 import HeroArrows from './components/HeroArrows';
 import HeroContent from './components/HeroContent';
@@ -30,6 +31,12 @@ const AUTOPLAY_INTERVAL = 5000;
 export default function Hero() {
   const t = useTranslations('hero');
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // ─── Stable viewport height ──────────────────────────────────────
+  // Avoids the classic iOS/Android "100vh jank" where the hero section
+  // continuously resizes as the address bar collapses/expands.
+  // Returns null during SSR → we fall back to 100svh via CSS.
+  const stableHeight = useStableViewportHeight();
 
   // Store pause state in a ref to avoid restarting the interval on hover toggle
   const isPausedRef = useRef(false);
@@ -70,7 +77,13 @@ export default function Hero() {
     <section
       id="hero"
       aria-label={t('companyName')}
-      className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden bg-black snap-start"
+      className="relative min-h-[600px] w-full overflow-hidden bg-black snap-start"
+      style={{
+        // Use JS-computed stable height when available.
+        // Falls back to 100svh (smallest viewport) during SSR/first-paint,
+        // which is the initial viewport WITH address bar visible — no jank.
+        height: stableHeight ? `${stableHeight}px` : '100svh',
+      }}
       // Pause auto-play while the user hovers anywhere over the hero section
       onMouseEnter={() => { isPausedRef.current = true; }}
       onMouseLeave={() => { isPausedRef.current = false; }}
