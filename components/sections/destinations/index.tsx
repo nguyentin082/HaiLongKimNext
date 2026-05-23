@@ -111,8 +111,9 @@ export default function Destinations() {
   }, []);
 
   return (
-    <section id="destinations" className="section-shell py-12 md:py-16">
-      <div className="text-center">
+    <section id="destinations" className="w-full bg-zinc-50 dark:bg-zinc-900/30">
+      <div className="section-shell py-12 md:py-16">
+        <div className="text-center">
         <h2 className="font-display text-[30px] font-extrabold text-primary md:text-[36px]">
           {t('title')}
         </h2>
@@ -130,6 +131,7 @@ export default function Destinations() {
         onPrev={scrollPrev}
         onNext={scrollNext}
       />
+      </div>
     </section>
   );
 }

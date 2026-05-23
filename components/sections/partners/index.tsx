@@ -41,8 +41,9 @@ export default async function Partners() {
   const track = [...partners, ...partners, ...partners];
 
   return (
-    <section className="section-shell py-10 md:py-16" aria-labelledby="partners-heading">
-      <h2
+    <section className="w-full bg-zinc-50 dark:bg-zinc-900/30" aria-labelledby="partners-heading">
+      <div className="section-shell py-10 md:py-16">
+        <h2
         id="partners-heading"
         className="text-center font-display text-[26px] font-extrabold text-primary md:text-[34px]"
       >
@@ -98,6 +99,7 @@ export default async function Partners() {
             );
           })}
         </div>
+      </div>
       </div>
     </section>
   );

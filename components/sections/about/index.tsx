@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import BookingCards from '@/components/sections/booking-cards';
 import {
   BadgeCheck,
   MapPin,
@@ -45,8 +46,10 @@ export default function About() {
           <stop stopColor="rgb(35, 157, 157)" offset="100%" />
         </linearGradient>
       </svg>
-      <section id="about" className="relative section-shell py-12 md:py-20">
-        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center relative z-10 w-full">
+      <section id="about" className="relative w-full flow-root bg-zinc-50 dark:bg-zinc-900/30">
+        <BookingCards />
+        <div className="section-shell py-12 md:py-20">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center relative z-10 w-full">
           <div className="w-full max-w-full">
             <p className="font-display text-[14px] font-bold uppercase tracking-[0.14em] text-primary flex items-center gap-2">
               <MapPin className="w-4 h-4" />
@@ -129,6 +132,7 @@ export default function About() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>

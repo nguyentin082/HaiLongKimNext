@@ -14,17 +14,14 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
   return (
-    <section id="gallery" className="section-shell py-12 md:py-16">
-      <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
+    <section id="gallery" className="w-full bg-zinc-50 dark:bg-zinc-900/30">
+      <div className="section-shell py-12 md:py-16">
+        <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
         {t('title')}
       </h2>
 
       {/* Gallery Window Container */}
       <div className="relative mt-10 h-[600px] overflow-hidden md:h-[800px]">
-        {/* Top/Bottom Fading Gradients */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-32 bg-gradient-to-b from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-32 bg-gradient-to-t from-background to-transparent" />
-
         {/* Scrolling Marquee Wrapper */}
         <div className="gallery-marquee-track">
           {/* First instance of the grid */}
@@ -80,6 +77,7 @@ export default function Gallery() {
           )}
         </DialogContent>
       </Dialog>
+      </div>
     </section>
   );
 }
