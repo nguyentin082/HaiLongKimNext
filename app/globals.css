@@ -347,3 +347,26 @@
     padding-inline: 45px;
   }
 }
+
+/* ─── Partners marquee ──────────────────────────────────────────────── */
+@keyframes partnersScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+.partners-marquee {
+  animation: partnersScroll 22s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .partners-marquee {
+    animation-duration: 32s;
+  }
+}
+
+@media (hover: hover) {
+  .partners-marquee:hover {
+    animation-play-state: paused;
+  }
+}
