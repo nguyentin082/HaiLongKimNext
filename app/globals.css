@@ -209,7 +209,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth snap-y snap-proximity;
     /* Ẩn scrollbar mặc định hoàn toàn để dùng CustomScrollbar JS */
     -ms-overflow-style: none;
     scrollbar-width: none;

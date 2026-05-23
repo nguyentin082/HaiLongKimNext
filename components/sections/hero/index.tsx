@@ -70,7 +70,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-label={t('companyName')}
-      className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden bg-black"
+      className="relative h-[100dvh] min-h-[600px] w-full overflow-hidden bg-black snap-start"
       // Pause auto-play while the user hovers anywhere over the hero section
       onMouseEnter={() => { isPausedRef.current = true; }}
       onMouseLeave={() => { isPausedRef.current = false; }}
