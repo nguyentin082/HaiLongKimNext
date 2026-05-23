@@ -301,6 +301,8 @@
   "floatingContact": {
     "ariaPhone": "Gọi hotline",
     "ariaZalo": "Mở Zalo",
-    "ariaMessenger": "Mở Messenger"
+    "ariaMessenger": "Mở Messenger",
+    "ariaScrollTop": "Lên đầu trang",
+    "tooltipScrollTop": "Lên đầu trang"
   }
 }

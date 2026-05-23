@@ -305,6 +305,8 @@
   "floatingContact": {
     "ariaPhone": "Call hotline",
     "ariaZalo": "Open Zalo",
-    "ariaMessenger": "Open Messenger"
+    "ariaMessenger": "Open Messenger",
+    "ariaScrollTop": "Scroll to top",
+    "tooltipScrollTop": "Scroll to top"
   }
 }

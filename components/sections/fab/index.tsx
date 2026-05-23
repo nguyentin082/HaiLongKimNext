@@ -1,7 +1,9 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Phone, MessageSquareText, MessagesSquare } from 'lucide-react';
+import { Phone, MessageSquareText, MessagesSquare, ArrowUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { FabButton } from './components/FabButton';
 
 const ICON_CLASS = 'h-5 w-5 drop-shadow-sm';
@@ -14,9 +16,44 @@ const TEAL_COLOR =
 
 export default function FabSection() {
   const t = useTranslations('floatingContact');
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3.5">
+    <div className="fixed bottom-6 right-6 z-[90] flex flex-col items-end gap-3.5">
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            transition={{ duration: 0.2 }}
+          >
+            <FabButton
+              onClick={scrollToTop}
+              ariaLabel={t('ariaScrollTop')}
+              tooltip={t('tooltipScrollTop')}
+              colorClass={TEAL_COLOR}
+              icon={<ArrowUp className={ICON_CLASS} strokeWidth={2} />}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <FabButton
         href="tel:0901234567"
         ariaLabel={t('ariaPhone')}
