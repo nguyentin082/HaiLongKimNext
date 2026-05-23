@@ -59,9 +59,8 @@ export default function BookingCards() {
       <div className="container mx-auto max-w-[1200px]">
         <div className="flex flex-wrap justify-center gap-3 md:gap-4 lg:gap-6 pointer-events-auto">
           {cards.map((card, index) => (
-            <motion.a
+            <motion.div
               key={card.id}
-              href={card.href}
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               animate={isScrolled ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 15, scale: 0.95 }}
               transition={{
@@ -69,7 +68,7 @@ export default function BookingCards() {
                 delay: isScrolled ? index * 0.1 : (cards.length - 1 - index) * 0.05,
                 ease: [0.21, 0.47, 0.32, 0.98],
               }}
-              className="flex w-[calc(50%-6px)] flex-col items-center justify-center rounded-2xl md:rounded-[2rem] bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-transform hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] sm:w-[calc(33.333%-8px)] lg:w-auto lg:flex-1 dark:bg-zinc-900/95 dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] dark:hover:shadow-[0_8px_30px_rgb(0,0,0,0.6)] dark:backdrop-blur-md dark:border dark:border-white/5"
+              className="flex w-[calc(50%-6px)] flex-col items-center justify-center rounded-2xl md:rounded-[2rem] bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.06)] cursor-default sm:w-[calc(33.333%-8px)] lg:w-auto lg:flex-1 dark:bg-zinc-900/95 dark:shadow-[0_8px_30px_rgb(0,0,0,0.4)] dark:backdrop-blur-md dark:border dark:border-white/5"
             >
               <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-[#FFF5EB] md:mb-4 md:h-16 md:w-16 dark:bg-orange-500/10">
                 <img
@@ -81,7 +80,7 @@ export default function BookingCards() {
               <span className="text-center text-[13px] font-semibold text-zinc-800 md:text-[15px] dark:text-zinc-200">
                 {t(card.id)}
               </span>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>
