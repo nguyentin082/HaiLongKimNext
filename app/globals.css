@@ -389,19 +389,21 @@
   }
 }
 
-.partners-marquee {
-  animation: partnersScroll 22s linear infinite;
-  will-change: transform;
-}
-
-@media (min-width: 768px) {
+@layer utilities {
   .partners-marquee {
-    animation-duration: 32s;
+    animation: partnersScroll 22s linear infinite;
+    will-change: transform;
   }
-}
 
-@media (hover: hover) {
-  .partners-marquee:hover {
-    animation-play-state: paused;
+  @media (min-width: 768px) {
+    .partners-marquee {
+      animation-duration: 32s;
+    }
+  }
+
+  @media (hover: hover) {
+    .partners-marquee:hover {
+      animation-play-state: paused;
+    }
   }
 }

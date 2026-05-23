@@ -7,7 +7,7 @@ export const GLASS_ADDRESS_CLASSES =
   'inline-flex rounded-[24px] border-0 bg-white/90 px-4 py-[13px] text-[15px] font-semibold text-[#1F2F2F] shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-xl backdrop-saturate-150 dark:bg-black/75 dark:text-white dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-colors duration-300';
 
 export const GLASS_BUTTON_CLASSES =
-  'inline-flex items-center gap-2 rounded-[24px] border-0 bg-white/90 px-5 py-[13px] text-[15px] font-semibold text-[#1F2F2F] shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] active:scale-[0.98] dark:bg-black/75 dark:text-white dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] dark:hover:bg-black/90 dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)]';
+  'inline-flex items-center gap-2 rounded-[24px] border-0 bg-white/90 px-5 py-[13px] text-[15px] font-semibold text-[#1F2F2F] shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 cursor-pointer hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)] active:scale-[0.98] dark:bg-black/75 dark:text-white dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)] dark:hover:bg-black/90 dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)]';
 
 export const INPUT_CLASSES =
   'h-[56px] w-full rounded-[16px] border-0 bg-[#F4F4F5] px-5 text-[16px] text-[#1F2F2F] shadow-none outline-none transition-all duration-300 placeholder:text-[#697575] hover:bg-[#E4E4E7] focus:bg-[#FFFFFF] focus:ring-2 focus:ring-[#087C7A]/20 dark:bg-[#112325] dark:text-[#EDF7F6] dark:placeholder:text-[#9BABAB] dark:hover:bg-[#162B2D] dark:focus:bg-[#0F1C1E]';
