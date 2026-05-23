@@ -51,16 +51,7 @@ export default async function Partners() {
       </h2>
 
       {/* Marquee wrapper */}
-      <div className="relative mt-8 overflow-hidden rounded-3xl bg-card py-5 soft-shadow md:rounded-4xl md:py-8">
-        {/* Decorative fade edges */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-card to-transparent md:w-24"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-card to-transparent md:w-24"
-        />
+      <div className="relative mt-8 overflow-hidden py-5 md:py-8">
 
         {/*
           role="list" + role="listitem" → accessible + crawlable list of partners.
