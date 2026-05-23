@@ -18,3 +18,4 @@ dist/
 # Lockfiles (keep only package-lock.json since using npm)
 pnpm-lock.yaml
 yarn.lock
+tsconfig.tsbuildinfo
