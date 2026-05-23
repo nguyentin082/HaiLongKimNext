@@ -19,41 +19,64 @@ const StarIcon = () => (
   </svg>
 );
 
+const AVATAR_COLORS = [
+  { bg: '#0D9488', fg: '#CCFBF1' }, // teal
+  { bg: '#0369A1', fg: '#E0F2FE' }, // blue
+  { bg: '#7C3AED', fg: '#EDE9FE' }, // violet
+  { bg: '#B45309', fg: '#FEF3C7' }, // amber
+  { bg: '#047857', fg: '#D1FAE5' }, // emerald
+];
+
+const AnonAvatar = ({ index, name }: { index: number; name: string }) => {
+  const { bg, fg } = AVATAR_COLORS[index % AVATAR_COLORS.length];
+  const initials = name
+    .split(' ')
+    .slice(-2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
+  return (
+    <span
+      aria-label={name}
+      style={{ backgroundColor: bg, color: fg }}
+      className="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[15px] font-bold tracking-wide shadow-sm select-none"
+    >
+      {initials}
+    </span>
+  );
+};
+
+
 const MOCK_TESTIMONIALS = [
   {
     name: 'Chị Nguyễn Thanh Hương',
     location: 'Hà Nội',
     quote:
       '"Gia đình tôi đã có một kỳ nghỉ tuyệt vời. Xe đời mới, tài xế rất nhiệt tình, lái xe an toàn và hỗ trợ chu đáo suốt hành trình."',
-    image: 'https://i.pravatar.cc/150?u=huong',
   },
   {
     name: 'Anh Lê Văn Nam',
     location: 'TP. Hồ Chí Minh',
     quote:
       '"Tour 4 đảo thực sự ấn tượng. Đặc biệt là bạn hướng dẫn viên chụp ảnh rất có tâm, gia đình tôi có rất nhiều ảnh đẹp."',
-    image: 'https://i.pravatar.cc/150?u=nam',
   },
   {
     name: 'Bạn Trần Minh Tâm',
     location: 'Đà Nẵng',
     quote:
       '"Giá vé VinWonders tại đây rẻ hơn mua tại quầy. Nhận mã QR ngay lập tức, không phải chờ đợi. Dịch vụ rất nhanh chóng."',
-    image: 'https://i.pravatar.cc/150?u=tam',
   },
   {
     name: 'Chị Phạm Thị Yến',
     location: 'Hải Phòng',
     quote:
       '"Rất hài lòng với dịch vụ thuê xe tự lái. Thủ tục nhanh gọn, xe sạch sẽ và đầy đủ tiện nghi. Chắc chắn sẽ ủng hộ lại lần sau!"',
-    image: 'https://i.pravatar.cc/150?u=yen',
   },
   {
     name: 'Anh Hoàng Hải',
     location: 'Nha Trang',
     quote:
       '"Mình đặt vé cáp treo Hòn Thơm và Safari, giá ưu đãi tốt hơn nhiều so với tự mua. Các bạn tư vấn viên hỗ trợ rất nhiệt tình."',
-    image: 'https://i.pravatar.cc/150?u=ioas',
   },
 ];
 
@@ -93,11 +116,7 @@ export default function Testimonials() {
                   </p>
 
                   <div className="flex items-center gap-4 mt-auto">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="h-12 w-12 rounded-full object-cover shadow-sm"
-                    />
+                    <AnonAvatar index={index} name={item.name} />
                     <div>
                       <p className="font-bold text-text-secondary text-[15px]">{item.name}</p>
                       <p className="text-[13px] text-text-muted/50">{item.location}</p>
