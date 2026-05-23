@@ -21,7 +21,7 @@ const HeaderInner = memo(function HeaderInner({ children }: HeaderShellProps) {
 
   return (
     <div
-      className="relative flex items-center justify-between gap-4 rounded-3xl border px-4 py-2.5 md:px-6"
+      className="relative flex items-center justify-between gap-2 rounded-3xl border px-3 py-2.5 min-[480px]:gap-4 min-[480px]:px-4 md:px-6"
       style={{
         borderColor: isHeroMode ? 'rgba(255,255,255,0.13)' : 'rgba(255,255,255,0.04)',
         boxShadow: isHeroMode
@@ -45,7 +45,7 @@ const HeaderInner = memo(function HeaderInner({ children }: HeaderShellProps) {
         style={{ opacity: isHeroMode ? 0 : 1, transition: TRANSITION }}
       />
       {/* Actual content sits on top */}
-      <div className="relative z-10 flex w-full items-center justify-between gap-4">
+      <div className="relative z-10 flex w-full items-center justify-between gap-2 min-[480px]:gap-4">
         {children}
       </div>
     </div>

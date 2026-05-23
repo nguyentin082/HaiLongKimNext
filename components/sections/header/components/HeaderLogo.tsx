@@ -17,7 +17,7 @@ const HeaderLogo = memo(function HeaderLogo({ locale }: HeaderLogoProps) {
   return (
     <Link
       href={`/${locale}`}
-      className="relative font-brand text-[23px] font-bold leading-8"
+      className="relative font-brand text-[17px] font-bold leading-8 min-[480px]:text-[23px]"
       prefetch={false}
     >
       {/* Brand gradient layer — visible in normal mode */}

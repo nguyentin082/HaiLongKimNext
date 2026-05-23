@@ -11,7 +11,7 @@ type BookTourButtonProps = {
 };
 
 const BASE =
-  'group inline-flex cursor-pointer items-center gap-2 rounded-full border transition-all duration-500 px-4 py-2.5 text-[14px] font-semibold md:px-5 md:py-3 md:text-[15px]';
+  'group inline-flex cursor-pointer items-center gap-2 rounded-full border transition-all duration-500 p-2.5 min-[480px]:px-4 min-[480px]:py-2.5 min-[480px]:text-[14px] font-semibold md:px-5 md:py-3 md:text-[15px]';
 
 const NORMAL = {
   wrapper:
@@ -39,7 +39,8 @@ const BookTourButton = memo(function BookTourButton({
       <span className={s.icon}>
         <PlaneTakeoff className="h-4 w-4 stroke-[2.25]" />
       </span>
-      <span>{label}</span>
+      {/* Hide label text on very small screens, show on 480px+ */}
+      <span className="hidden min-[480px]:inline">{label}</span>
       <span className={s.arrow}>→</span>
     </Link>
   );

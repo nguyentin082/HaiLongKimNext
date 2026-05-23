@@ -41,7 +41,7 @@ export default async function Page({ locale }: HeaderProps) {
 
         <DesktopNav navLinks={navLinks} />
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 min-[480px]:gap-3">
           <span className="hidden xl:flex">
             <ThemeToggle />
           </span>
