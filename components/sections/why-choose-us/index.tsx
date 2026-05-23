@@ -139,7 +139,7 @@ export default function WhyChooseUs() {
           {reasonItems.map((item) => (
             <article
               key={item.id}
-              className="group flex flex-col items-center rounded-3xl bg-card px-8 py-10 text-center shadow-[0_10px_30px_-5px_rgba(0,0,0,0.08)] dark:shadow-[0_12px_20px_-8px_rgba(0,0,0,0.7)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_20px_30px_-10px_rgba(0,0,0,0.9)]"
+              className="group flex flex-col items-center rounded-3xl bg-card px-8 py-10 text-center shadow-[0_10px_30px_-5px_rgba(0,0,0,0.08)] dark:shadow-[0_12px_20px_-8px_rgba(0,0,0,0.7)] transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_20px_30px_-10px_rgba(0,0,0,0.9)]"
             >
               {/* Icon bubble */}
               <div className="mb-2 flex h-[80px] w-[80px] items-center justify-center rounded-full bg-black/5 dark:bg-white/5 transition-colors duration-300 group-hover:bg-black/10 dark:group-hover:bg-white/10">

@@ -41,14 +41,14 @@ export default function HeroContent() {
           <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row md:mt-10 md:gap-4">
             <a
               href="#destinations"
-              className="group flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-bold text-slate-900 transition-all hover:scale-105 hover:bg-white/90 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] sm:w-auto md:h-14 md:px-8 md:text-[15px]"
+              className="group flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-[14px] font-bold text-slate-900 transition-[transform,background-color,box-shadow] duration-200 hover:scale-105 hover:bg-white/90 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] sm:w-auto md:h-14 md:px-8 md:text-[15px]"
             >
               {t('primaryCtaNew')}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 md:h-5 md:w-5" />
             </a>
             <a
               href="#gallery"
-              className="flex h-12 w-full items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 text-[14px] font-bold text-white backdrop-blur-md transition-all hover:scale-105 hover:bg-white/20 sm:w-auto md:h-14 md:px-8 md:text-[15px]"
+              className="flex h-12 w-full items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 text-[14px] font-bold text-white backdrop-blur-md transition-[transform,background-color] duration-200 hover:scale-105 hover:bg-white/20 sm:w-auto md:h-14 md:px-8 md:text-[15px]"
             >
               {t('secondaryCtaNew')}
             </a>

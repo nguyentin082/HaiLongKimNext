@@ -55,7 +55,7 @@ function ServiceCardBase({ item }: ServiceCardProps) {
 
         <a
           href={item.buttonLink}
-          className="mt-auto flex w-full items-center justify-center rounded-[14px] bg-zinc-900 px-5 py-3.5 text-[14px] font-bold text-white transition-all duration-200 ease-out hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300 active:scale-[0.98]"
+          className="mt-auto flex w-full items-center justify-center rounded-[14px] bg-zinc-900 px-5 py-3.5 text-[14px] font-bold text-white transition-[background-color,transform] duration-200 ease-out hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-300 active:scale-[0.98]"
         >
           {item.buttonText}
         </a>

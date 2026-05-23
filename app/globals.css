@@ -209,7 +209,7 @@
 
 @layer base {
   html {
-    @apply scroll-smooth snap-y snap-proximity;
+    @apply scroll-smooth;
     /* Ẩn scrollbar mặc định hoàn toàn để dùng CustomScrollbar JS */
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -311,15 +311,20 @@
   }
 
   /* Theme toggle animation — triggered by use-theme.ts hook for 500ms.
-     IMPORTANT: transition-property here OVERRIDES any existing transition on every
-     matched element. We must include ALL properties any element might animate
-     (transform, opacity…) so that hover effects (translate, scale) stay smooth
-     during the 500ms theme-change window. */
-  html.theme-transitioning *,
-  html.theme-transitioning *::before,
-  html.theme-transitioning *::after {
-    transition-property:
-      background-color, border-color, color, fill, stroke, box-shadow, filter, transform, opacity;
+     Targets container-level elements only (not `*`) to avoid forcing transitions
+     on hundreds of DOM nodes (gallery images, marquee items, etc.).
+     Excludes transform/opacity — those are animation-related, not theme-related. */
+  html.theme-transitioning section,
+  html.theme-transitioning header,
+  html.theme-transitioning footer,
+  html.theme-transitioning nav,
+  html.theme-transitioning main,
+  html.theme-transitioning body,
+  html.theme-transitioning article,
+  html.theme-transitioning [class*="bg-"],
+  html.theme-transitioning [class*="text-"],
+  html.theme-transitioning [class*="border-"] {
+    transition-property: background-color, border-color, color, fill, stroke, box-shadow;
     transition-duration: 500ms;
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }

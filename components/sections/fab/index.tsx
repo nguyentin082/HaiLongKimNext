@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Phone, MessageSquareText, MessagesSquare, ArrowUp } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FabButton } from './components/FabButton';
 
@@ -17,14 +17,27 @@ const TEAL_COLOR =
 export default function FabSection() {
   const t = useTranslations('floatingContact');
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 100);
+      // Throttle with rAF — coalesces rapid scroll events into 1 per frame
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        const shouldShow = window.scrollY > 100;
+        // Functional updater: only triggers re-render if value actually changes
+        setShowScrollTop((prev) => (prev !== shouldShow ? shouldShow : prev));
+        rafRef.current = 0;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // { passive: true } is CRITICAL — tells browser this handler never calls
+    // preventDefault(), so it can start scrolling without waiting for JS
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   const scrollToTop = () => {
