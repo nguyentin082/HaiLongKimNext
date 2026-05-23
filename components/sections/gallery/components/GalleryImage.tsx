@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import type { GalleryItem } from '../types';
 
@@ -25,10 +26,12 @@ export function GalleryImage({ item, index, onClick }: GalleryImageProps) {
       )}
       style={{ animationDelay: `${index * 50}ms` }}
     >
-      <img
+      <Image
         src={item.src}
         alt={item.alt}
-        className="block h-full w-full object-cover rounded-2xl transition-all duration-500 ease-out group-hover:brightness-110"
+        fill
+        sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+        className="rounded-2xl object-cover transition-all duration-500 ease-out group-hover:brightness-110"
         loading="lazy"
       />
     </div>
