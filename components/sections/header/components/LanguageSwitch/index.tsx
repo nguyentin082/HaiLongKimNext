@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { memo, useCallback } from 'react';
 import { FlagComponent } from './FlagComponent';
 import { cn } from '@/lib/utils';
+import { useHeaderModeContext } from '../../context/header-mode';
 
 export type Locale = 'vi' | 'en';
 
@@ -27,12 +28,19 @@ function DesktopSwitch({
   onSelect: (l: Locale) => void;
 }) {
   const t = useTranslations('nav');
+  const isHeroMode = useHeaderModeContext();
 
   return (
     <div
       role="group"
       aria-label="Language switch"
-      className="hidden items-center gap-0.5 rounded-full border border-white/10 bg-white/8 p-1 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/12 dark:border-white/8 dark:bg-white/5 dark:hover:border-white/15 sm:inline-flex"
+      className={cn(
+        'hidden items-center gap-0.5 rounded-full border p-1 backdrop-blur-sm transition-all duration-300 sm:inline-flex',
+        isHeroMode
+          ? 'border-white/10 bg-white/8 hover:border-white/20 hover:bg-white/12'
+          : 'border-black/5 bg-black/5 hover:border-black/10 hover:bg-black/10',
+        'dark:border-white/8 dark:bg-white/5 dark:hover:border-white/15'
+      )}
     >
       {LOCALES.map(({ locale, flag, labelKey }) => {
         const active = currentLocale === locale;
@@ -46,8 +54,15 @@ function DesktopSwitch({
             className={cn(
               'relative flex h-8 cursor-pointer items-center gap-1.5 rounded-full px-2.5 text-[0.7rem] font-semibold uppercase tracking-widest transition-all duration-300',
               active
-                ? 'bg-white/90 text-slate-800 shadow-sm dark:bg-white/12 dark:text-white'
-                : 'text-white/60 hover:text-white/90 dark:text-white/50 dark:hover:text-white/80',
+                ? isHeroMode
+                  ? 'bg-white/90 text-slate-800 shadow-sm'
+                  : 'bg-white text-slate-800 shadow-sm ring-1 ring-black/5'
+                : isHeroMode
+                  ? 'text-white/60 hover:text-white/90'
+                  : 'text-slate-500 hover:text-slate-800',
+              active
+                ? 'dark:bg-white/12 dark:text-white dark:ring-0'
+                : 'dark:text-white/50 dark:hover:text-white/80'
             )}
           >
             <FlagComponent flag={flag} active={active} size="sm" />
@@ -87,8 +102,8 @@ function MobileSwitch({
             className={cn(
               'flex h-11 items-center justify-center gap-2.5 rounded-2xl text-[0.8rem] font-semibold transition-all duration-300',
               active
-                ? 'bg-white/15 text-white ring-1 ring-white/25 dark:bg-white/10 dark:ring-white/15'
-                : 'bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/75 dark:text-white/40',
+                ? 'bg-primary/10 text-primary ring-1 ring-primary/25 dark:bg-white/10 dark:text-white dark:ring-white/15'
+                : 'bg-foreground/5 text-foreground/50 hover:bg-foreground/10 hover:text-foreground/75 dark:text-white/40 dark:hover:bg-white/5 dark:hover:text-white/70',
             )}
           >
             <FlagComponent flag={flag} active={active} size="md" />
