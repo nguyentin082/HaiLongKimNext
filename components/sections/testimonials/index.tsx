@@ -65,7 +65,7 @@ export default function Testimonials() {
       <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
         {tTest('title')}
       </h2>
-      <div className="mt-10 px-4 sm:px-16 md:px-24">
+      <div className="mt-10 px-4 sm:px-20 md:px-28">
         <Carousel
           opts={{
             align: 'start',
@@ -107,8 +107,8 @@ export default function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex -left-6 md:-left-12 lg:-left-16 h-10 w-10 md:h-12 md:w-12 border-[2px] border-text-muted/30 bg-transparent text-text-muted/80 shadow-none cursor-pointer hover:scale-110 active:scale-95 hover:border-primary hover:bg-transparent hover:text-primary transition-all" />
-          <CarouselNext className="hidden sm:flex -right-6 md:-right-12 lg:-right-16 h-10 w-10 md:h-12 md:w-12 border-[2px] border-text-muted/30 bg-transparent text-text-muted/80 shadow-none cursor-pointer hover:scale-110 active:scale-95 hover:border-primary hover:bg-transparent hover:text-primary transition-all" />
+          <CarouselPrevious className="hidden sm:flex -left-16 md:-left-20 lg:-left-24 h-11 w-11 lg:h-14 lg:w-14 cursor-pointer rounded-full border border-border/80 lg:border-2 bg-background/95 text-foreground shadow-[0_12px_35px_rgba(15,23,42,0.16)] backdrop-blur-md transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:scale-110 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_16px_45px_rgba(15,23,42,0.22)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:border-white/10 dark:bg-slate-900/90 dark:text-white dark:shadow-[0_12px_35px_rgba(0,0,0,0.35)] dark:hover:border-primary/60 dark:hover:bg-primary dark:hover:text-primary-foreground" />
+          <CarouselNext className="hidden sm:flex -right-16 md:-right-20 lg:-right-24 h-11 w-11 lg:h-14 lg:w-14 cursor-pointer rounded-full border border-border/80 lg:border-2 bg-background/95 text-foreground shadow-[0_12px_35px_rgba(15,23,42,0.16)] backdrop-blur-md transition-[transform,background-color,border-color,color,box-shadow] duration-200 hover:scale-110 hover:border-primary/40 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_16px_45px_rgba(15,23,42,0.22)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:border-white/10 dark:bg-slate-900/90 dark:text-white dark:shadow-[0_12px_35px_rgba(0,0,0,0.35)] dark:hover:border-primary/60 dark:hover:bg-primary dark:hover:text-primary-foreground" />
         </Carousel>
       </div>
     </section>
