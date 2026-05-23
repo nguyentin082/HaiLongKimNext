@@ -20,25 +20,34 @@ export default function Gallery() {
       </h2>
 
       {/* Gallery Window Container */}
-      <div className="relative mt-10 h-[600px] md:h-[800px] overflow-hidden">
-        
+      <div className="relative mt-10 h-[600px] overflow-hidden md:h-[800px]">
         {/* Top/Bottom Fading Gradients */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-32 bg-gradient-to-b from-background to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-32 bg-gradient-to-t from-background to-transparent" />
 
         {/* Scrolling Marquee Wrapper */}
-        <div className="flex flex-col animate-[marquee-up_60s_linear_infinite] hover:[animation-play-state:paused]">
+        <div className="flex flex-col animate-[marquee-up_60s_linear_infinite] will-change-transform hover:[animation-play-state:paused]">
           {/* First instance of the grid */}
-          <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense px-4">
+          <div className="mb-4 grid grid-cols-2 gap-4 px-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense">
             {GALLERY_IMAGES.map((item, i) => (
-              <GalleryImage key={`first-${item.src}`} item={item} index={i} onClick={setSelectedImage} />
+              <GalleryImage
+                key={`first-${item.src}`}
+                item={item}
+                index={i}
+                onClick={setSelectedImage}
+              />
             ))}
           </div>
 
           {/* Duplicate instance for seamless loop */}
           <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense px-4">
             {GALLERY_IMAGES.map((item, i) => (
-              <GalleryImage key={`second-${item.src}`} item={item} index={i} onClick={setSelectedImage} />
+              <GalleryImage
+                key={`second-${item.src}`}
+                item={item}
+                index={i}
+                onClick={setSelectedImage}
+              />
             ))}
           </div>
         </div>
@@ -46,14 +55,12 @@ export default function Gallery() {
 
       {/* Lightbox Dialog */}
       <Dialog open={!!selectedImage} onOpenChange={(open) => !open && setSelectedImage(null)}>
-        <DialogContent 
-          className="max-w-7xl border-none bg-transparent p-0 shadow-none" 
+        <DialogContent
+          className="max-w-7xl border-none bg-transparent p-0 shadow-none"
           showCloseButton={false}
         >
-          <DialogTitle className="sr-only">
-            {selectedImage?.alt || 'Image preview'}
-          </DialogTitle>
-          
+          <DialogTitle className="sr-only">{selectedImage?.alt || 'Image preview'}</DialogTitle>
+
           {selectedImage && (
             <div className="relative flex h-[85vh] w-full items-center justify-center">
               <div className="relative inline-flex max-h-full max-w-full items-center justify-center">
@@ -62,7 +69,7 @@ export default function Gallery() {
                   alt={selectedImage.alt}
                   className="max-h-[85vh] w-auto max-w-full rounded-lg object-contain shadow-2xl"
                 />
-                
+
                 {/* Elegant Close Button inside the image bounds */}
                 <DialogClose className="absolute right-3 top-3 rounded-full border border-white/20 bg-black/50 p-2 text-white backdrop-blur-md transition-colors hover:bg-black/80 focus:outline-none focus:ring-2 focus:ring-white/50">
                   <XIcon className="h-5 w-5" />
