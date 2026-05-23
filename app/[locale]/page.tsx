@@ -9,7 +9,7 @@ import Gallery from '@/components/sections/gallery';
 import Testimonials from '@/components/sections/testimonials';
 import Partners from '@/components/sections/partners';
 import ContactSection from '@/components/sections/contact';
-import Footer from '@/components/sections/Footer';
+import Footer from '@/components/sections/footer';
 import FabSection from '@/components/sections/fab';
 
 export const metadata: Metadata = {
