@@ -26,9 +26,9 @@ export default function Gallery() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-32 bg-gradient-to-t from-background to-transparent" />
 
         {/* Scrolling Marquee Wrapper */}
-        <div className="flex flex-col animate-[marquee-up_60s_linear_infinite] will-change-transform hover:[animation-play-state:paused]">
+        <div className="gallery-marquee-track">
           {/* First instance of the grid */}
-          <div className="mb-4 grid grid-cols-2 gap-4 px-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense">
+          <div className="grid grid-cols-2 gap-4 px-4 pb-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense">
             {GALLERY_IMAGES.map((item, i) => (
               <GalleryImage
                 key={`first-${item.src}`}
@@ -40,7 +40,7 @@ export default function Gallery() {
           </div>
 
           {/* Duplicate instance for seamless loop */}
-          <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense px-4">
+          <div aria-hidden="true" className="grid grid-cols-2 gap-4 px-4 pb-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense">
             {GALLERY_IMAGES.map((item, i) => (
               <GalleryImage
                 key={`second-${item.src}`}

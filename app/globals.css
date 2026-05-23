@@ -352,15 +352,33 @@
   }
 }
 
-/* ─── Partners marquee ──────────────────────────────────────────────── */
+/* ─── Gallery vertical marquee ─────────────────────────────────────── */
 @keyframes marquee-up {
-  0% {
+  from {
     transform: translateY(0);
   }
-  100% {
+  to {
     transform: translateY(-50%);
   }
 }
+
+/* Gallery: two equal-height grid clones stacked with a shared gap.
+   The animation moves the track up exactly half its total height so the
+   second clone seamlessly lines up with where the first started. */
+.gallery-marquee-track {
+  display: flex;
+  flex-direction: column;
+  animation: marquee-up 60s linear infinite;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .gallery-marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* ─── Partners marquee ──────────────────────────────────────────────── */
 
 @keyframes partnersScroll {
   from {
