@@ -338,8 +338,6 @@
       background-position: -200% center;
     }
   }
-
-
 }
 
 @media (min-width: 768px) {
@@ -356,8 +354,12 @@
 
 /* ─── Partners marquee ──────────────────────────────────────────────── */
 @keyframes partnersScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.333%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.333%);
+  }
 }
 
 .partners-marquee {
