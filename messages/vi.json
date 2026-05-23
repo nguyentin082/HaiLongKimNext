@@ -279,13 +279,13 @@
   },
   "footer": {
     "brand": "Hải Long Kim Tourist",
-    "description": "Người bạn đồng hành tin cậy trên mọi nẻo đường khám phá đảo ngọc Phú Quốc và Việt Nam.",
+    "description": "Người bạn đồng hành đáng tin cậy cùng bạn khám phá mọi nét đẹp trên khắp Việt Nam.",
     "contactTitle": "Thông tin liên hệ",
     "address": "Trần Hưng Đạo, Dương Đông, Phú Quốc, Kiên Giang",
     "phone": "0901 234 567",
     "email": "info@hailongkim.vn",
     "navTitle": "Điều hướng nhanh",
-    "copyright": "© 2024 Hải Long Kim Travel. Giấy phép lữ hành số: 79-1234/2024/TCDL-GP LHQT. Thiết kế bởi HLK.",
+    "copyright": "© {year} Hải Long Kim Travel. Giấy phép lữ hành số: 79-1234/2024/TCDL-GP LHQT.",
     "ariaFacebook": "Facebook",
     "ariaZalo": "Zalo",
     "ariaLinkedin": "LinkedIn"

@@ -283,13 +283,13 @@
   },
   "footer": {
     "brand": "Hai Long Kim Tourist",
-    "description": "A dependable travel partner for every route across Phu Quoc Island and Vietnam.",
+    "description": "Your dependable travel partner for exploring the magnificent beauty across Vietnam.",
     "contactTitle": "Contact details",
     "address": "Tran Hung Dao, Duong Dong, Phu Quoc, Kien Giang",
     "phone": "0901 234 567",
     "email": "info@hailongkim.vn",
     "navTitle": "Quick navigation",
-    "copyright": "© 2024 Hai Long Kim Travel. International travel license no. 79-1234/2024/TCDL-GP LHQT. Designed by HLK.",
+    "copyright": "© {year} Hai Long Kim Travel. International travel license no. 79-1234/2024/TCDL-GP LHQT.",
     "ariaFacebook": "Facebook",
     "ariaZalo": "Zalo",
     "ariaLinkedin": "LinkedIn"
