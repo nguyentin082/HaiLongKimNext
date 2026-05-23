@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin', '/api'],
       },
     ],
-    sitemap: 'https://hailongkim.com/sitemap.xml',
-    host: 'https://hailongkim.com',
+    sitemap: 'https://www.hlktourist.vn/sitemap.xml',
+    host: 'https://www.hlktourist.vn',
   };
 }

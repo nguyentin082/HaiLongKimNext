@@ -303,12 +303,36 @@
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
-  /* Smooth theme transitions */
-  .theme-transition,
-  .theme-transition * {
-    transition-property: background-color, border-color, color, fill, stroke, opacity;
+  /* Smooth theme transitions — only applies to colors, does NOT override transform transitions */
+  .theme-transition {
+    transition-property: background-color;
     transition-duration: 250ms;
     transition-timing-function: ease;
+  }
+
+  /* Theme toggle animation — triggered by use-theme.ts hook for 500ms.
+     IMPORTANT: transition-property here OVERRIDES any existing transition on every
+     matched element. We must include ALL properties any element might animate
+     (transform, opacity…) so that hover effects (translate, scale) stay smooth
+     during the 500ms theme-change window. */
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition-property: background-color, border-color, color, fill, stroke,
+      box-shadow, filter, transform, opacity;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Destination card skeleton shimmer sweep */
+  @keyframes dest-shimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
   }
 }
 
@@ -321,5 +345,28 @@
 @media (min-width: 1200px) {
   .section-shell {
     padding-inline: 45px;
+  }
+}
+
+/* ─── Partners marquee ──────────────────────────────────────────────── */
+@keyframes partnersScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+.partners-marquee {
+  animation: partnersScroll 22s linear infinite;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .partners-marquee {
+    animation-duration: 32s;
+  }
+}
+
+@media (hover: hover) {
+  .partners-marquee:hover {
+    animation-play-state: paused;
   }
 }

@@ -12,16 +12,20 @@ export function useTheme() {
   useEffect(() => {
     setMounted(true);
     const stored = localStorage.getItem('theme') as Theme | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const resolved: Theme = stored ?? (prefersDark ? 'dark' : 'light');
-    applyTheme(resolved);
+    // Always default to light mode; only respect a previously stored user preference
+    const resolved: Theme = stored ?? 'light';
+    // On initial mount: apply theme WITHOUT the transition class so hover
+    // animations work immediately from the first frame.
+    applyTheme(resolved, { animate: false });
     setTheme(resolved);
   }, []);
 
-  function applyTheme(t: Theme) {
+  function applyTheme(t: Theme, { animate = true }: { animate?: boolean } = {}) {
     const html = document.documentElement;
 
-    html.classList.add('theme-transitioning');
+    if (animate) {
+      html.classList.add('theme-transitioning');
+    }
 
     if (t === 'dark') {
       html.classList.add('dark');
@@ -29,18 +33,22 @@ export function useTheme() {
       html.classList.remove('dark');
     }
 
-    window.setTimeout(() => {
-      html.classList.remove('theme-transitioning');
-    }, THEME_TRANSITION_MS);
+    if (animate) {
+      window.setTimeout(() => {
+        html.classList.remove('theme-transitioning');
+      }, THEME_TRANSITION_MS);
+    }
 
     localStorage.setItem('theme', t);
   }
 
   function toggle() {
     const next: Theme = theme === 'dark' ? 'light' : 'dark';
+    // User-triggered toggle: animate = true (default)
     applyTheme(next);
     setTheme(next);
   }
 
   return { theme, toggle, mounted, isDark: theme === 'dark' };
 }
+

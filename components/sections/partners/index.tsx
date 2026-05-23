@@ -1,60 +1,103 @@
-'use client';
+/**
+ * Partners – Server Component
+ *
+ * Rendered entirely on the server:
+ * - No JS bundle sent to the client for this section
+ * - HTML is crawlable by search engines on first byte (SSR/SEO)
+ * - CSS animation lives in globals.css (no runtime <style> injection)
+ * - `next/image` handles lazy-loading & srcset automatically
+ */
 
-import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 
-const PARTNER_IMAGES = {
-  vinpearl: 'https://www.figma.com/api/mcp/asset/c2d01461-4cf1-46e4-83f0-6dd1f2a36b6e',
-  sunWorld: 'https://www.figma.com/api/mcp/asset/601cc05e-1bb0-4b9a-82ee-437249b63a93',
-  superdong: 'https://www.figma.com/api/mcp/asset/0156e538-097d-4cce-82e0-5a7dc7528cc0',
-};
+interface Partner {
+  key: string;
+  src: string;
+  label: string;
+}
 
-export default function Partners() {
-  const tPartners = useTranslations('partners');
+// Defined outside the component — zero allocation per request
+const PARTNER_SRCS: Omit<Partner, 'label'>[] = [
+  { key: 'vinpearl', src: '/icons/brand/VINPEARL.svg' },
+  { key: 'sunworld', src: '/icons/brand/SUNWORLD.svg' },
+  { key: 'superdong', src: '/icons/brand/SUPERDONG.svg' },
+  { key: 'vnairlines', src: '/icons/brand/vnairline.svg' },
+  { key: 'vietjet', src: '/icons/brand/vietjet.svg' },
+  { key: 'muongthanh', src: '/icons/brand/muongthanh.svg' },
+  { key: 'phuquocexpress', src: '/icons/brand/PhuQuocExpress.svg' },
+];
 
-  const partners = [
-    {
-      type: 'image' as const,
-      label: tPartners('partner1'),
-      src: PARTNER_IMAGES.vinpearl,
-    },
-    {
-      type: 'image' as const,
-      label: tPartners('partner2'),
-      src: PARTNER_IMAGES.sunWorld,
-    },
-    {
-      type: 'image' as const,
-      label: tPartners('partner3'),
-      src: PARTNER_IMAGES.superdong,
-    },
-    { type: 'text' as const, label: tPartners('partner4') },
-    { type: 'text' as const, label: tPartners('partner5') },
-    { type: 'text' as const, label: tPartners('partner6') },
-  ];
+export default async function Partners() {
+  const t = await getTranslations('partners');
+
+  const partners: Partner[] = PARTNER_SRCS.map((p, i) => ({
+    ...p,
+    label: t(`partner${i + 1}` as Parameters<typeof t>[0]),
+  }));
+
+  // ×3 so the track never empties on wide screens;
+  // only the first 7 are meaningful for SEO — the rest are aria-hidden.
+  const track = [...partners, ...partners, ...partners];
 
   return (
-    <section className="section-shell py-12 md:py-16">
-      <h2 className="text-center font-display text-[30px] font-extrabold text-primary md:text-[36px]">
-        {tPartners('title')}
+    <section className="section-shell py-10 md:py-16" aria-labelledby="partners-heading">
+      <h2
+        id="partners-heading"
+        className="text-center font-display text-[26px] font-extrabold text-primary md:text-[34px]"
+      >
+        {t('title')}
       </h2>
-      <div className="mt-10 grid grid-cols-2 items-center gap-6 rounded-4xl bg-card px-5 py-8 soft-shadow border border-border md:grid-cols-3 xl:grid-cols-6">
-        {partners.map((item) =>
-          item.type === 'image' ? (
-            <img
-              key={item.label}
-              src={item.src}
-              alt={item.label}
-              className="mx-auto max-h-9 w-auto object-contain dark:brightness-75 dark:contrast-125"
-            />
-          ) : (
-            <div
-              key={item.label}
-              className="text-center text-sm font-extrabold uppercase tracking-[0.08em] text-text-muted"
-            >
-              {item.label}
-            </div>
-          ),
-        )}
+
+      {/* Marquee wrapper */}
+      <div className="relative mt-8 overflow-hidden rounded-3xl bg-card py-5 soft-shadow md:rounded-4xl md:py-8">
+        {/* Decorative fade edges */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-card to-transparent md:w-24"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-card to-transparent md:w-24"
+        />
+
+        {/*
+          role="list" + role="listitem" → accessible + crawlable list of partners.
+          Only the FIRST copy is visible to assistive tech; duplicates are aria-hidden.
+        */}
+        <div
+          className="partners-marquee flex w-max items-center"
+          role="list"
+          aria-label={t('title')}
+        >
+          {track.map((partner, idx) => {
+            const isOriginal = idx < partners.length;
+            return (
+              <div
+                key={`${partner.key}-${idx}`}
+                role={isOriginal ? 'listitem' : undefined}
+                aria-hidden={isOriginal ? undefined : 'true'}
+                className="flex shrink-0 items-center justify-center px-4 md:px-8"
+              >
+                {/* Fixed bounding box: mobile 112×44 | desktop 208×80 */}
+                <div className="flex h-11 w-28 items-center justify-center md:h-20 md:w-52">
+                  <Image
+                    src={partner.src}
+                    alt={isOriginal ? partner.label : ''}
+                    title={isOriginal ? partner.label : undefined}
+                    width={208}
+                    height={80}
+                    // Eager-load only the first visible set; lazy the rest
+                    loading={isOriginal ? 'eager' : 'lazy'}
+                    // Treat first copy as part of above-the-fold content
+                    priority={isOriginal}
+                    className="max-h-full max-w-full object-contain opacity-80 transition-opacity duration-300 hover:opacity-100"
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

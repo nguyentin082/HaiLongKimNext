@@ -37,35 +37,33 @@
     "quickLink7": "Shopping"
   },
   "about": {
-    "eyebrow": "A trusted travel partner",
-    "title": "Trips curated with care and a steady hand.",
-    "description": "We tailor every route to the pace of each group, balancing memorable stops, manageable travel time, and clear support before and during the trip.",
+    "eyebrow": "ABOUT US",
+    "title": "A trusted local travel agency",
+    "description1": "Welcome to <strong>Hai Long Kim Tourist</strong>, where the sons and daughters of Vietnam gather to help you write inspiring journeys. With a deep understanding of every breath of our homeland, we are proud to offer the most authentic, safe, and professional travel experiences.",
+    "description2": "With extensive experience in the travel industry, we always ensure thoughtfulness and subtlety in every small detail of the trip. At <strong>Hai Long Kim Tourist</strong>, every passenger has a dedicated companion, always serving with enthusiasm to personalize every emotion of yours. We are committed to providing genuine service value, from accommodation to cuisine, worthy of the absolute trust you have placed in us. With a pioneering spirit, we continuously unlock new journeys, helping you discover the endless beauty of Vietnam through unique and fresh perspectives.",
     "card1Title": "1:1 planning",
     "card1Desc": "Custom itineraries shaped for families, friends, or private groups.",
     "card2Title": "Transparent pricing",
     "card2Desc": "Clear line items so planning stays easy and decisions stay confident.",
-    "check1": "100+ diverse tours",
-    "check2": "10,000+ customers",
-    "check3": "24/7 support",
-    "check4": "Competitive pricing",
+    "check1": "Trusted agency",
+    "check2": "Local team",
+    "check3": "Reasonable prices",
+    "check4": "Years of experience",
     "logoAlt": "Hai Long Kim logo",
-    "hotlineLabel": "Hotline",
-    "hotlineValue": "0911 234 567"
+    "hotlineLabel": "20+",
+    "hotlineValue": "Years of experience in local travel."
   },
   "reasons": {
     "title": "Why Travel With Us",
     "item1Id": "01",
-    "item1Title": "Tailored plans",
-    "item1Desc": "Each itinerary is adapted to the group, the trip length, and the mood you want.",
+    "item1Title": "Premium Quality",
+    "item1Desc": "End-to-end service managed in-house, with experienced guides and modern vehicles at every step.",
     "item2Id": "02",
-    "item2Title": "Local insight",
-    "item2Desc": "We blend iconic stops with grounded local experiences that stay memorable.",
+    "item2Title": "24/7 Support",
+    "item2Desc": "Our hotline is always ready — from the moment you plan your trip to the moment you arrive home safely.",
     "item3Id": "03",
-    "item3Title": "Fast support",
-    "item3Desc": "Hotline, Zalo, Messenger, and email move together as one support flow.",
-    "item4Id": "04",
-    "item4Title": "Clear pricing",
-    "item4Desc": "A transparent quote structure makes comparison and approval much easier."
+    "item3Title": "Best Prices",
+    "item3Desc": "Competitive market rates backed by direct partnerships, with attractive deals available year-round."
   },
   "destinations": {
     "title": "Wonderful Destinations",
@@ -81,7 +79,107 @@
     "dest2Alt": "Da Nang",
     "dest3Tag": "Phu Quoc Island",
     "dest3Title": "Kien Giang",
-    "dest3Alt": "Kien Giang"
+    "dest3Alt": "Kien Giang",
+    "dest_laocai_tag": "Sapa",
+    "dest_laocai_title": "Lao Cai",
+    "dest_laocai_alt": "Lao Cai",
+
+    "dest_danang_tag": "Ba Na Hills",
+    "dest_danang_title": "Da Nang",
+    "dest_danang_alt": "Da Nang",
+
+    "dest_kiengiang_tag": "Phu Quoc Island",
+    "dest_kiengiang_title": "Kien Giang",
+    "dest_kiengiang_alt": "Kien Giang",
+
+    "dest_hanoi_tag": "Old Quarter",
+    "dest_hanoi_title": "Hanoi",
+    "dest_hanoi_alt": "Hanoi",
+
+    "dest_hagiang_tag": "Highlands",
+    "dest_hagiang_title": "Ha Giang",
+    "dest_hagiang_alt": "Ha Giang",
+
+    "dest_quangninh_tag": "Halong Bay",
+    "dest_quangninh_title": "Quang Ninh",
+    "dest_quangninh_alt": "Quang Ninh",
+
+    "dest_hoian_tag": "Ancient Town",
+    "dest_hoian_title": "Hoi An",
+    "dest_hoian_alt": "Hoi An",
+
+    "dest_hue_tag": "Imperial City",
+    "dest_hue_title": "Hue",
+    "dest_hue_alt": "Hue",
+
+    "dest_quangbinh_tag": "Caves & Coast",
+    "dest_quangbinh_title": "Quang Binh",
+    "dest_quangbinh_alt": "Quang Binh",
+
+    "dest_quynhon_tag": "Coastal City",
+    "dest_quynhon_title": "Quy Nhon",
+    "dest_quynhon_alt": "Quy Nhon",
+
+    "dest_cantho_tag": "Mekong Delta",
+    "dest_cantho_title": "Can Tho",
+    "dest_cantho_alt": "Can Tho",
+
+    "dest_bentre_tag": "Coconut River",
+    "dest_bentre_title": "Ben Tre",
+    "dest_bentre_alt": "Ben Tre",
+
+    "dest_baclieu_tag": "Southern Coast",
+    "dest_baclieu_title": "Bac Lieu",
+    "dest_baclieu_alt": "Bac Lieu",
+
+
+    "dest_binhthuan_tag": "Coastal Escape",
+    "dest_binhthuan_title": "Binh Thuan",
+    "dest_binhthuan_alt": "Binh Thuan",
+
+    "dest_camau_tag": "Cape of the South",
+    "dest_camau_title": "Ca Mau",
+    "dest_camau_alt": "Ca Mau",
+
+    "dest_dongthap_tag": "Waterway Heartland",
+    "dest_dongthap_title": "Dong Thap",
+    "dest_dongthap_alt": "Dong Thap",
+
+    "dest_khanhhoa_tag": "Bay Paradise",
+    "dest_khanhhoa_title": "Khanh Hoa",
+    "dest_khanhhoa_alt": "Khanh Hoa",
+
+    "dest_mocchau_tag": "Tea Hills",
+    "dest_mocchau_title": "Moc Chau",
+    "dest_mocchau_alt": "Moc Chau, Son La",
+
+    "dest_mytho_tag": "River City",
+    "dest_mytho_title": "My Tho",
+    "dest_mytho_alt": "My Tho",
+
+    "dest_ninhbinh_tag": "Karst Landscape",
+    "dest_ninhbinh_title": "Ninh Binh",
+    "dest_ninhbinh_alt": "Ninh Binh",
+
+    "dest_phuyen_tag": "Sunny Coast",
+    "dest_phuyen_title": "Phu Yen",
+    "dest_phuyen_alt": "Phu Yen",
+
+    "dest_chaudoc_tag": "Tra Su Wetland",
+    "dest_chaudoc_title": "Chau Doc",
+    "dest_chaudoc_alt": "Tra Su, Chau Doc",
+
+    "dest_soctrang_tag": "Pagoda Country",
+    "dest_soctrang_title": "Soc Trang",
+    "dest_soctrang_alt": "Soc Trang",
+
+    "dest_tayninh_tag": "Border Highlands",
+    "dest_tayninh_title": "Tay Ninh",
+    "dest_tayninh_alt": "Tay Ninh",
+
+    "dest_vinhhy_tag": "Vinh Hy Bay",
+    "dest_vinhhy_title": "Ninh Thuan",
+    "dest_vinhhy_alt": "Vinh Hy, Ninh Thuan"
   },
   "services": {
     "title": "Featured Services",
@@ -145,7 +243,8 @@
     "partner3": "Superdong",
     "partner4": "Vietnam Airlines",
     "partner5": "Vietjet Air",
-    "partner6": "Local Guide"
+    "partner6": "Muong Thanh",
+    "partner7": "Phu Quoc Express"
   },
   "contact": {
     "eyebrow": "Contact us",

@@ -3,7 +3,7 @@ import Header from '@/components/sections/header';
 import Hero from '@/components/sections/hero';
 import About from '@/components/sections/about';
 import WhyChooseUs from '@/components/sections/why-choose-us';
-import Destinations from '@/components/sections/Destinations';
+import Destinations from '@/components/sections/destinations';
 import Services from '@/components/sections/services';
 import Gallery from '@/components/sections/Gallery';
 import Testimonials from '@/components/sections/testimonials';
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Hải Long Kim Tourist - Khám Phá Việt Nam',
     description: 'Trải nghiệm du lịch tuyệt vời với Hải Long Kim Tourist.',
     type: 'website',
-    url: 'https://hailongkim.com',
+    url: 'https://www.hlktourist.vn',
     images: [
       {
         url: '/hero-bg.jpg',
