@@ -41,8 +41,9 @@ export default async function Partners() {
   const track = [...partners, ...partners, ...partners];
 
   return (
-    <section className="section-shell py-10 md:py-16" aria-labelledby="partners-heading">
-      <h2
+    <section className="w-full bg-zinc-50 dark:bg-zinc-900/30" aria-labelledby="partners-heading">
+      <div className="section-shell py-10 md:py-16">
+        <h2
         id="partners-heading"
         className="text-center font-display text-[26px] font-extrabold text-primary md:text-[34px]"
       >
@@ -50,16 +51,7 @@ export default async function Partners() {
       </h2>
 
       {/* Marquee wrapper */}
-      <div className="relative mt-8 overflow-hidden rounded-3xl bg-card py-5 soft-shadow md:rounded-4xl md:py-8">
-        {/* Decorative fade edges */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-card to-transparent md:w-24"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-card to-transparent md:w-24"
-        />
+      <div className="relative mt-8 overflow-hidden py-5 md:py-8">
 
         {/*
           role="list" + role="listitem" → accessible + crawlable list of partners.
@@ -98,6 +90,7 @@ export default async function Partners() {
             );
           })}
         </div>
+      </div>
       </div>
     </section>
   );

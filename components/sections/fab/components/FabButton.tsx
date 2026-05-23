@@ -1,7 +1,8 @@
 import { FAB_BUTTON_BASE, FAB_SHIMMER, FAB_TOOLTIP_BASE } from '../constants';
 
 interface FabButtonProps {
-  href: string;
+  href?: string;
+  onClick?: () => void;
   ariaLabel: string;
   tooltip: string;
   colorClass: string;
@@ -11,6 +12,7 @@ interface FabButtonProps {
 
 export function FabButton({
   href,
+  onClick,
   ariaLabel,
   tooltip,
   colorClass,
@@ -21,18 +23,35 @@ export function FabButton({
     ? { target: '_blank', rel: 'noreferrer' }
     : {};
 
+  const buttonContent = (
+    <>
+      <div className={FAB_SHIMMER} />
+      <span className="relative z-10 flex items-center justify-center">{icon}</span>
+    </>
+  );
+
   return (
     <div className="group relative flex items-center gap-3">
       <span className={FAB_TOOLTIP_BASE}>{tooltip}</span>
-      <a
-        href={href}
-        aria-label={ariaLabel}
-        className={`${FAB_BUTTON_BASE} ${colorClass}`}
-        {...externalProps}
-      >
-        <div className={FAB_SHIMMER} />
-        <span className="relative z-10 flex items-center justify-center">{icon}</span>
-      </a>
+      {href ? (
+        <a
+          href={href}
+          aria-label={ariaLabel}
+          className={`${FAB_BUTTON_BASE} ${colorClass}`}
+          {...externalProps}
+        >
+          {buttonContent}
+        </a>
+      ) : (
+        <button
+          onClick={onClick}
+          aria-label={ariaLabel}
+          className={`${FAB_BUTTON_BASE} ${colorClass}`}
+          type="button"
+        >
+          {buttonContent}
+        </button>
+      )}
     </div>
   );
 }

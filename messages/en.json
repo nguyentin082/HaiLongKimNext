@@ -36,6 +36,14 @@
     "quickLink6": "Services",
     "quickLink7": "Shopping"
   },
+  "bookingCards": {
+    "card1": "Train Tickets",
+    "card2": "Boat Tickets",
+    "card3": "VinWonders/Safari",
+    "card4": "Car Rental",
+    "card5": "Cable Car",
+    "card6": "Island Tour"
+  },
   "about": {
     "eyebrow": "ABOUT US",
     "title": "A trusted local travel agency",
@@ -297,6 +305,8 @@
   "floatingContact": {
     "ariaPhone": "Call hotline",
     "ariaZalo": "Open Zalo",
-    "ariaMessenger": "Open Messenger"
+    "ariaMessenger": "Open Messenger",
+    "ariaScrollTop": "Scroll to top",
+    "tooltipScrollTop": "Scroll to top"
   }
 }
