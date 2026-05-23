@@ -1,23 +1,25 @@
 export const SITE = {
-  name: 'Hai Long Kim Travel',
-  description: 'Experience unforgettable travel adventures with Hai Long Kim Travel.',
-  url: 'https://hailongkim.com',
-  ogImage: 'https://hailongkim.com/og-image.jpg',
-  twitterHandle: '@hailongkim',
+  name: 'Hải Long Kim Tourist',
+  description:
+    'Công ty TNHH TM DV Hải Long Kim – đơn vị lữ hành bản địa uy tín với 20+ năm kinh nghiệm.',
+  url: 'https://www.hlktourist.vn',
+  altUrl: 'http://hlktourist.com',
+  ogImage: 'https://www.hlktourist.vn/hero-bg.jpg',
+  twitterHandle: '@hlktourist',
 } as const;
 
 export const CONTACT = {
-  phone: '+84 (555) 123-4567',
-  email: 'info@hailongkim.com',
-  address: 'Ha Long City, Quang Ninh, Vietnam',
-  hours: '08:00 - 18:00',
+  phone: '+84-901-234-567',
+  email: 'info@hailongkim.vn',
+  address: '95 Đường 1, Khu Phố 26, Phường Long Trường, TP.HCM',
+  hours: '07:30 - 20:00',
 } as const;
 
 export const SOCIAL_LINKS = {
-  facebook: 'https://facebook.com/hailongkim',
-  instagram: 'https://instagram.com/hailongkim',
-  linkedin: 'https://linkedin.com/company/hailongkim',
-  zalo: 'https://zalo.me',
+  facebook: 'https://facebook.com/hailongkimtourist',
+  instagram: 'https://instagram.com/hlktourist',
+  linkedin: 'https://linkedin.com/company/hlktourist',
+  zalo: 'https://zalo.me/hailongkim',
 } as const;
 
 export const TRUST_BADGES = {

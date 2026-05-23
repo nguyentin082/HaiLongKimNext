@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { locales } from '@/lib/i18n/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://hailongkim.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hlktourist.vn';
 
   const routes = locales.flatMap((locale) => [
     {

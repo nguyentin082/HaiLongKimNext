@@ -1,61 +1,111 @@
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hlktourist.vn';
+
 export default function JsonLd() {
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Hai Long Kim Travel',
-    url: 'https://hailongkim.com',
-    logo: 'https://hailongkim.com/logo.png',
-    description: 'Experience unforgettable travel adventures with Hai Long Kim Travel.',
-    sameAs: [
-      'https://facebook.com/hailongkim',
-      'https://instagram.com/hailongkim',
-      'https://linkedin.com/company/hailongkim',
-    ],
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Ha Long City',
-      addressLocality: 'Quang Ninh',
-      addressCountry: 'VN',
+    '@type': ['Organization', 'TravelAgency'],
+    '@id': `${SITE_URL}/#organization`,
+    name: 'Công ty TNHH TM DV Hải Long Kim',
+    alternateName: 'Hải Long Kim Tourist',
+    url: SITE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/icon.svg`,
+      width: 566,
+      height: 622,
     },
+    image: `${SITE_URL}/hero-bg.jpg`,
+    description:
+      'Công ty TNHH TM DV Hải Long Kim – đơn vị lữ hành bản địa uy tín với 20+ năm kinh nghiệm. Chuyên tour 3 miền trọn gói, vé máy bay, vé tàu và dịch vụ vận chuyển toàn quốc.',
+    foundingDate: '2004',
+    sameAs: [
+      'http://hlktourist.com',
+      'https://facebook.com/hailongkimtourist',
+      'https://zalo.me/hailongkim',
+    ],
+    address: [
+      {
+        '@type': 'PostalAddress',
+        name: 'Chi nhánh TP.HCM',
+        streetAddress: '95 Đường 1, Khu Phố 26, Phường Long Trường',
+        addressLocality: 'TP. Hồ Chí Minh',
+        addressCountry: 'VN',
+      },
+      {
+        '@type': 'PostalAddress',
+        name: 'Chi nhánh An Giang',
+        streetAddress: 'Lô 12 Venice Villas, Đường Võ Văn Kiệt, Phường Hà Tiên',
+        addressLocality: 'An Giang',
+        addressCountry: 'VN',
+      },
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
-      contactType: 'Customer Service',
-      telephone: '+84-555-123-4567',
-      email: 'info@hailongkim.com',
+      contactType: 'customer service',
+      telephone: '+84-901-234-567',
+      email: 'info@hailongkim.vn',
+      availableLanguage: ['Vietnamese', 'English'],
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '07:30',
+        closes: '20:00',
+      },
     },
   };
 
   const localBusinessSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Hai Long Kim Travel',
-    image: 'https://hailongkim.com/hero-bg.jpg',
+    '@type': ['LocalBusiness', 'TravelAgency'],
+    '@id': `${SITE_URL}/#localbusiness`,
+    name: 'Hải Long Kim Tourist',
+    image: `${SITE_URL}/hero-bg.jpg`,
     description:
-      'Vietnam travel agency offering cruise tours, cultural tours, adventure tours, and holiday packages.',
-    url: 'https://hailongkim.com',
-    telephone: '+84-555-123-4567',
+      'Đơn vị lữ hành bản địa uy tín, cung cấp tour 3 miền trọn gói, đại lý vé máy bay – vé tàu, và dịch vụ vận chuyển du lịch toàn quốc.',
+    url: SITE_URL,
+    telephone: '+84-901-234-567',
+    email: 'info@hailongkim.vn',
+    priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Ha Long City',
-      addressLocality: 'Quang Ninh',
-      postalCode: '20000',
+      streetAddress: '95 Đường 1, Khu Phố 26, Phường Long Trường',
+      addressLocality: 'TP. Hồ Chí Minh',
       addressCountry: 'VN',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '20.8552',
-      longitude: '107.1839',
+      latitude: '10.797639',
+      longitude: '106.791250',
     },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '08:00',
-      closes: '18:00',
+      opens: '07:30',
+      closes: '20:00',
     },
-    rating: {
+    aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '1000',
+      ratingValue: '4.9',
+      reviewCount: '500',
+      bestRating: '5',
+      worstRating: '1',
+    },
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: 'Hải Long Kim Tourist',
+    inLanguage: ['vi-VN', 'en-US'],
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
     },
   };
 
@@ -63,15 +113,15 @@ export default function JsonLd() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationSchema),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
     </>
   );
