@@ -13,11 +13,28 @@ export default function Gallery() {
         {t('title')}
       </h2>
 
-      {/* Shadcn Block 25 Gallery: masonry-style dense grid using Tailwind */}
-      <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense">
-        {GALLERY_IMAGES.map((item, i) => (
-          <GalleryImage key={item.src} item={item} index={i} />
-        ))}
+      {/* Gallery Window Container */}
+      <div className="relative mt-10 h-[600px] md:h-[800px] overflow-hidden">
+        {/* Top/Bottom Fading Gradients */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-32 bg-gradient-to-b from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-32 bg-gradient-to-t from-background to-transparent" />
+
+        {/* Scrolling Marquee Wrapper */}
+        <div className="flex flex-col animate-[marquee-up_60s_linear_infinite] hover:[animation-play-state:paused]">
+          {/* First instance of the grid */}
+          <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense px-4">
+            {GALLERY_IMAGES.map((item, i) => (
+              <GalleryImage key={`first-${item.src}`} item={item} index={i} />
+            ))}
+          </div>
+
+          {/* Duplicate instance for seamless loop */}
+          <div className="mb-4 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4 auto-rows-[160px] md:auto-rows-[200px] grid-flow-dense px-4">
+            {GALLERY_IMAGES.map((item, i) => (
+              <GalleryImage key={`second-${item.src}`} item={item} index={i} />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

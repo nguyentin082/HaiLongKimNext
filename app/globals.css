@@ -338,8 +338,6 @@
       background-position: -200% center;
     }
   }
-
-
 }
 
 @media (min-width: 768px) {
@@ -351,5 +349,14 @@
 @media (min-width: 1200px) {
   .section-shell {
     padding-inline: 45px;
+  }
+}
+
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
   }
 }
