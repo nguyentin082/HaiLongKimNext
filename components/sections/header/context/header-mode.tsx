@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useRef } from 'react';
 
 /* ─── Scroll detection ──────────────────────────────────────── */
 
@@ -8,25 +8,53 @@ import { createContext, useContext, useState, useEffect } from 'react';
  * Returns true while the #hero section is still visible behind the
  * fixed header. Switches to false once the user scrolls past the full
  * hero height, triggering the header's solid/glass style.
+ *
+ * Performance: uses rAF throttling + ref-guarded setState to avoid
+ * unnecessary re-renders during scroll (~60-120 events/sec on mobile).
  */
 function useHeaderMode(): boolean {
   const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const isHeroVisibleRef = useRef(true);
+  const heroHeightRef = useRef(0);
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    const getHeroHeight = () => {
-      const hero = document.getElementById('hero');
-      return hero ? hero.offsetHeight : window.innerHeight;
+    // Cache hero height once — avoids DOM read (offsetHeight) every scroll frame
+    const hero = document.getElementById('hero');
+    heroHeightRef.current = hero ? hero.offsetHeight : window.innerHeight;
+
+    const check = () => {
+      const visible = window.scrollY < heroHeightRef.current;
+      // Only trigger re-render when value actually changes
+      if (visible !== isHeroVisibleRef.current) {
+        isHeroVisibleRef.current = visible;
+        setIsHeroVisible(visible);
+      }
     };
 
-    const check = () => setIsHeroVisible(window.scrollY < getHeroHeight());
+    // Throttle to 1 check per animation frame — coalesces rapid scroll events
+    const handleScroll = () => {
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        check();
+        rafRef.current = 0;
+      });
+    };
+
+    const handleResize = () => {
+      const hero = document.getElementById('hero');
+      heroHeightRef.current = hero ? hero.offsetHeight : window.innerHeight;
+      check();
+    };
 
     check();
-    window.addEventListener('scroll', check, { passive: true });
-    window.addEventListener('resize', check, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', check);
-      window.removeEventListener('resize', check);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, useScroll } from 'framer-motion';
 
@@ -37,22 +37,30 @@ export default function BookingCards() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
 
+  // Track scroll state in a ref to avoid re-subscribing on every toggle.
+  // The ref always holds the latest value; we only call setState when the
+  // value actually changes, preventing the stale-closure re-subscribe loop.
+  const isScrolledRef = useRef(false);
+
   useEffect(() => {
     // Check initial scroll position
     if (window.scrollY > 20) {
+      isScrolledRef.current = true;
       setIsScrolled(true);
     }
 
     const unsubscribe = scrollY.on('change', (latest) => {
-      if (latest > 20 && !isScrolled) {
-        setIsScrolled(true);
-      } else if (latest <= 20 && isScrolled) {
-        setIsScrolled(false);
+      const shouldBeScrolled = latest > 20;
+      if (shouldBeScrolled !== isScrolledRef.current) {
+        isScrolledRef.current = shouldBeScrolled;
+        setIsScrolled(shouldBeScrolled);
       }
     });
 
     return () => unsubscribe();
-  }, [scrollY, isScrolled]);
+    // scrollY is stable (Framer Motion), isScrolled intentionally excluded
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [scrollY]);
 
   return (
     <section className="relative z-20 w-full px-4 -mt-10 md:-mt-16 lg:-mt-24 pointer-events-none">

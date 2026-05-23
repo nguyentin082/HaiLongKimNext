@@ -11,6 +11,9 @@ export default function CustomScrollbar() {
   
   const dragStartY = useRef(0);
   const dragStartScrollY = useRef(0);
+  const rafRef = useRef<number>(0);
+  const prevThumbRef = useRef(0);
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   
   const updateScroll = useCallback(() => {
     if (typeof window === 'undefined') return;
@@ -19,7 +22,10 @@ export default function CustomScrollbar() {
     const documentHeight = document.documentElement.scrollHeight;
     
     if (documentHeight <= windowHeight) {
-      setThumbHeight(0);
+      if (prevThumbRef.current !== 0) {
+        prevThumbRef.current = 0;
+        setThumbHeight(0);
+      }
       return;
     }
 
@@ -30,7 +36,11 @@ export default function CustomScrollbar() {
     const heightRatio = windowHeight / documentHeight;
     const calculatedHeight = Math.max(heightRatio * windowHeight, 40);
     
-    setThumbHeight(calculatedHeight);
+    // Only update thumbHeight when it changes significantly (avoids unnecessary re-render)
+    if (Math.abs(calculatedHeight - prevThumbRef.current) > 1) {
+      prevThumbRef.current = calculatedHeight;
+      setThumbHeight(calculatedHeight);
+    }
     
     const availableScrollSpace = windowHeight - calculatedHeight;
     setScrollProgress(progress * availableScrollSpace);
@@ -38,32 +48,44 @@ export default function CustomScrollbar() {
 
   useEffect(() => {
     updateScroll();
-    
-    let scrollTimeout: NodeJS.Timeout;
 
     const handleScroll = () => {
       if (!isDragging) {
-        updateScroll();
+        // Coalesce rapid scroll events into 1 update per animation frame
+        if (!rafRef.current) {
+          rafRef.current = requestAnimationFrame(() => {
+            updateScroll();
+            rafRef.current = 0;
+          });
+        }
       }
+
+      // Show scrollbar indicator
       setIsScrolling(true);
-      
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
+      clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(() => {
         setIsScrolling(false);
       }, 1000);
     };
 
+    // Debounce ResizeObserver — body size changes from lazy images, accordions, etc.
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const resizeObserver = new ResizeObserver(() => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateScroll, 150);
+    });
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', updateScroll);
-    
-    const resizeObserver = new ResizeObserver(() => updateScroll());
     resizeObserver.observe(document.body);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', updateScroll);
       resizeObserver.disconnect();
-      clearTimeout(scrollTimeout);
+      clearTimeout(scrollTimeoutRef.current);
+      clearTimeout(resizeTimer);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [updateScroll, isDragging]);
 

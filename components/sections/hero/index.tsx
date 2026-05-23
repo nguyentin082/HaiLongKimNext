@@ -77,7 +77,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-label={t('companyName')}
-      className="relative min-h-[600px] w-full overflow-hidden bg-black snap-start"
+      className="relative min-h-[600px] w-full overflow-hidden bg-black"
       style={{
         // Use JS-computed stable height when available.
         // Falls back to 100svh (smallest viewport) during SSR/first-paint,
