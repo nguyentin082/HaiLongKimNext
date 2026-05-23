@@ -353,6 +353,15 @@
 }
 
 /* ─── Partners marquee ──────────────────────────────────────────────── */
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
 @keyframes partnersScroll {
   from {
     transform: translateX(0);

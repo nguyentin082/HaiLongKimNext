@@ -6,7 +6,7 @@ import { XIcon } from 'lucide-react';
 import { GalleryImage } from './components/GalleryImage';
 import { GALLERY_IMAGES } from './constants';
 import { Dialog, DialogContent, DialogTitle, DialogClose } from '@/components/ui/dialog';
-import { GalleryItem } from './types';
+import type { GalleryItem } from './types';
 
 export default function Gallery() {
   const t = useTranslations('gallery');
