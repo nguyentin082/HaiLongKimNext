@@ -1,4 +1,4 @@
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hlktourist.vn';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hlktourist.com';
 
 export default function JsonLd() {
   const organizationSchema = {
@@ -21,7 +21,7 @@ export default function JsonLd() {
     sameAs: [
       'http://hlktourist.com',
       'https://facebook.com/hailongkimtourist',
-      'https://zalo.me/hailongkim',
+      'https://zalo.me/0971798988',
     ],
     address: [
       {
@@ -42,8 +42,8 @@ export default function JsonLd() {
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer service',
-      telephone: '+84-901-234-567',
-      email: 'info@hailongkim.vn',
+      telephone: '+84-971-798-988',
+      email: 'hailongkimviptours@gmail.com',
       availableLanguage: ['Vietnamese', 'English'],
       hoursAvailable: {
         '@type': 'OpeningHoursSpecification',
@@ -63,8 +63,8 @@ export default function JsonLd() {
     description:
       'Đơn vị lữ hành bản địa uy tín, cung cấp tour 3 miền trọn gói, đại lý vé máy bay – vé tàu, và dịch vụ vận chuyển du lịch toàn quốc.',
     url: SITE_URL,
-    telephone: '+84-901-234-567',
-    email: 'info@hailongkim.vn',
+    telephone: '+84-971-798-988',
+    email: 'hailongkimviptours@gmail.com',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',
