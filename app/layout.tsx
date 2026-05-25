@@ -28,7 +28,7 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hlktourist.vn'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hlktourist.com'),
 
   // ── Title ────────────────────────────────────────────────────────────────
   title: {
@@ -117,7 +117,7 @@ export const metadata: Metadata = {
   },
 
   // ── Author / Publisher ───────────────────────────────────────────────────
-  authors: [{ name: 'Hải Long Kim Tourist', url: 'https://www.hlktourist.vn' }],
+  authors: [{ name: 'Hải Long Kim Tourist', url: 'https://www.hlktourist.com' }],
   creator: 'Hải Long Kim Tourist',
   publisher: 'Hải Long Kim Tourist',
 

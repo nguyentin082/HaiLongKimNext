@@ -68,14 +68,14 @@ export default function FabSection() {
         )}
       </AnimatePresence>
       <FabButton
-        href="tel:0901234567"
+        href="tel:0971798988"
         ariaLabel={t('ariaPhone')}
         tooltip="Hotline"
         colorClass={PHONE_COLOR}
         icon={<Phone className={ICON_CLASS} strokeWidth={2} />}
       />
       <FabButton
-        href="https://zalo.me"
+        href="https://zalo.me/0971798988"
         ariaLabel={t('ariaZalo')}
         tooltip="Zalo"
         colorClass={TEAL_COLOR}
